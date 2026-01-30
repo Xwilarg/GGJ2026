@@ -619,6 +619,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1693445581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4624776118410948, guid: d026b2ed211e9d44f8264cc5b67e77b8, type: 3}
+  m_PrefabInstance: {fileID: 8165484598053482441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8165484598053482441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,13 +679,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4624776118410948, guid: d026b2ed211e9d44f8264cc5b67e77b8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8165484598053482446}
   m_SourcePrefab: {fileID: 100100000, guid: d026b2ed211e9d44f8264cc5b67e77b8, type: 3}
 --- !u!4 &8165484598053482442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7598949912665273673, guid: d026b2ed211e9d44f8264cc5b67e77b8, type: 3}
   m_PrefabInstance: {fileID: 8165484598053482441}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8165484598053482446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693445581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39740fe9390d6b84d97fea4ff942782a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Player.AudioPlayerController
+  _bgm: {fileID: 1552220817}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
