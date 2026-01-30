@@ -4,6 +4,9 @@ namespace GGJ2026.Player
 {
     public class AudioPlayerController : MonoBehaviour
     {
+        [SerializeField]
+        private AudioSource _bgm;
+
         private CustomPlayerController _player;
 
         private void Awake()

@@ -2,11 +2,14 @@ using Sketch.FPS;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using static UnityEditor.PlayerSettings;
 
 namespace GGJ2026.Player
 {
     public class CustomPlayerController : PlayerController
     {
+        private Camera _cam;
+
         private MaskType _currentMask;
         public MaskType CurrentMask
         {
@@ -25,16 +28,18 @@ namespace GGJ2026.Player
         protected override void Awake()
         {
             base.Awake();
+
+            _cam = Camera.main;
         }
 
         public void OnMovementOverrides(InputAction.CallbackContext value)
         {
-            float rot = 45f;
-
             var mov = value.ReadValue<Vector2>();
+            var delta = 45f;
+
             _mov = new Vector2(
-                mov.x * Mathf.Cos(rot) - mov.y * Mathf.Sin(rot),
-                mov.x * Mathf.Sin(rot) + mov.y * Mathf.Cos(rot)
+                mov.x * Mathf.Sin(Mathf.Deg2Rad * delta) + mov.y * Mathf.Cos(Mathf.Deg2Rad * delta),
+                -(mov.x * Mathf.Cos(Mathf.Deg2Rad * delta) - mov.y * Mathf.Sin(Mathf.Deg2Rad * delta))
             );
         }
     }
