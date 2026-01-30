@@ -131,6 +131,26 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 661079623806977242, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8581262735160170348}
+    - target: {fileID: 661079623806977242, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8581262735160170348}
+    - target: {fileID: 661079623806977242, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMovementOverrides
+      objectReference: {fileID: 0}
+    - target: {fileID: 661079623806977242, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GGJ2026.Player.CustomPlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 661079623806977242, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GGJ2026.Player.CustomPlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2318909568991414244, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -175,15 +195,59 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 79024464993118885, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5179004131544224430, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2318909568991414244, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8758305468200180290}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5281281372893146217, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8581262735160170348}
   m_SourcePrefab: {fileID: 100100000, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+--- !u!1 &4624776118410948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5281281372893146217, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+  m_PrefabInstance: {fileID: 5285694724141413037}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8581262735160170348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4624776118410948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539afd51216f45346a4f4e712ce7ebac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Player.CustomPlayerController
+  _mouvementSpeed: 5
+  _horizontalSensitivity: 0.1
+  _verticalSensitivity: 0.1
+  _controllerSensitivity: 750
+  _runningMultiplier: 1.5
+  _jumpForce: 2
+  _gravityMultiplier: 0.75
+  _enablePhysics: 0
+  _head: {fileID: 0}
+  _pInput: {fileID: 4644951960004949623}
+  _triggerArea: {fileID: 0}
+  _interactionText: {fileID: 0}
+--- !u!114 &4644951960004949623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 661079623806977242, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+  m_PrefabInstance: {fileID: 5285694724141413037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7598949912665273673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2318909568991414244, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
