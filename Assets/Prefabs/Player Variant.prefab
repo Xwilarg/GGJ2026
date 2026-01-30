@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3198427591581383259}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7598949912665273673}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
 --- !u!212 &5692261263101248531
 SpriteRenderer:
   serializedVersion: 2
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b0718317f4793148813188aa7691e18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,6 +151,18 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GGJ2026.Player.CustomPlayerController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1991470368426550534, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      propertyPath: m_Height
+      value: 7.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991470368426550534, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      propertyPath: m_Radius
+      value: 1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991470368426550534, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      propertyPath: m_Center.y
+      value: -0.86
+      objectReference: {fileID: 0}
     - target: {fileID: 2318909568991414244, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -195,8 +207,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7018105178801142101, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      propertyPath: m_Height
+      value: 8.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7018105178801142101, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      propertyPath: m_Radius
+      value: 2.01
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 79024464993118885, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+    - {fileID: 1991470368426550534, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5179004131544224430, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
     m_AddedGameObjects:
@@ -207,6 +228,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5281281372893146217, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8581262735160170348}
+    - targetCorrespondingSourceObject: {fileID: 5281281372893146217, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2830406044829432046}
   m_SourcePrefab: {fileID: 100100000, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
 --- !u!1 &4624776118410948 stripped
 GameObject:
@@ -237,6 +261,28 @@ MonoBehaviour:
   _pInput: {fileID: 4644951960004949623}
   _triggerArea: {fileID: 0}
   _interactionText: {fileID: 0}
+--- !u!95 &2830406044829432046
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4624776118410948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf9f6480dee38a54dae77c81ce903e9a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4644951960004949623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 661079623806977242, guid: ddc5a7c6f584d76469c8ee20250d3a04, type: 3}
