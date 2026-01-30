@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GGJ2026.Manager;
+using UnityEngine;
 
 namespace GGJ2026.Player
 {
@@ -7,13 +8,9 @@ namespace GGJ2026.Player
         [SerializeField]
         private AudioSource _bgm;
 
-        private CustomPlayerController _player;
-
-        private void Awake()
+        private void Start()
         {
-            _player = GetComponent<CustomPlayerController>();
-
-            _player.OnMaskChange.AddListener((newMaskValue) =>
+            MaskManager.Instance.OnMaskChange.AddListener((newMaskValue) =>
             {
                 // Do mask things here :D
             });
