@@ -49,6 +49,10 @@ namespace GGJ2026.Player
         {
             if (other.TryGetComponent<IInteractible>(out var interaction))
             {
+                if (_currentInteraction != null)
+                {
+                    _currentInteraction.CancelInteraction(this);
+                }
                 _currentInteraction = interaction;
                 _interactionText.gameObject.SetActive(true);
             }
@@ -58,6 +62,7 @@ namespace GGJ2026.Player
         {
             if (other.TryGetComponent<IInteractible>(out var interaction) && interaction.Key == _currentInteraction.Key)
             {
+                _currentInteraction.CancelInteraction(this);
                 _currentInteraction = null;
                 _interactionText.gameObject.SetActive(false);
             }
@@ -155,6 +160,14 @@ namespace GGJ2026.Player
                 _isMidAirAfterJump = true;
                 _anim.SetTrigger("Jump");
                 _sfxController.PlayRandomJump();
+            }
+        }
+
+        public void OnInteract(InputAction.CallbackContext value)
+        {
+            if (value.phase == InputActionPhase.Started)
+            {
+
             }
         }
 

@@ -31,5 +31,10 @@ namespace GGJ2026.Manager
             btn.GetComponentInChildren<MaskButton>().Init(sprite, count.ToString());
             return btn.GetComponent<Button>();
         }
+
+        public void SetDescriptionText(string text)
+        {
+            _descriptionText.ToDisplay = text;
+        }
     }
 }

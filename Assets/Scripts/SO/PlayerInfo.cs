@@ -20,5 +20,8 @@ namespace GGJ2026.SO
     {
         public MaskType Type;
         public Sprite Sprite;
+
+        public string BaseLine;
+        public int LineCount;
     }
 }
