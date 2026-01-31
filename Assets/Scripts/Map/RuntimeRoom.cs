@@ -9,6 +9,9 @@ namespace GGJ2026.Map
         private GameObject[] _presets;
 
         [SerializeField]
+        private GameObject _presetStar;
+
+        [SerializeField]
         private Mirror _leftMirror, _rightMirror;
         public Mirror LeftMirror => _leftMirror;
         public Mirror RightMirror => _rightMirror;
@@ -31,6 +34,15 @@ namespace GGJ2026.Map
                 p.SetActive(false);
             }
             _presets[Random.Range(0, _presets.Length)].SetActive(true);
+        }
+
+        public void EnableSpecialPreset()
+        {
+            foreach (var p in _presets)
+            {
+                p.SetActive(false);
+            }
+            _presetStar.SetActive(true);
         }
     }
 }

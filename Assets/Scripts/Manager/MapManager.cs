@@ -26,7 +26,7 @@ namespace GGJ2026.Manager
 
             Dictionary<int, Room> tmpRooms = new();
 
-            void AddRoom(int depth, int x)
+            void AddRoom(int depth, int x, bool isSpe)
             {
                 var xPos = x * RoomSize;
                 var yPos = (depth - x - 1) * RoomSize;
@@ -45,13 +45,15 @@ namespace GGJ2026.Manager
 
                 tmpRooms.Add(pos.GetHashCode(), room);
                 _rooms.Add(room);
+
+                if (isSpe) room.RR.EnableSpecialPreset();
             }
 
             for (int depth = 1; depth <= _genInfo.GenerationDepth; depth++)
             {
                 for (int x = 0; x < depth; x++)
                 {
-                    AddRoom(depth, x);
+                    AddRoom(depth, x, false);
                 }
             }
             int tmp = _genInfo.GenerationDepth;
@@ -60,7 +62,7 @@ namespace GGJ2026.Manager
             {
                 for (int x = off; x < tmp; x++)
                 {
-                    AddRoom(depth, x);
+                    AddRoom(depth, x, depth == _genInfo.GenerationDepth * 2);
                 }
             }
 
