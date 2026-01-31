@@ -36,6 +36,9 @@ namespace GGJ2026.Prop
         {
             if (_isUsed) return;
 
+#if UNITY_EDITOR
+            Debug.Log($"[MIRROR] Used mask {MaskManager.Instance.CurrentMask} on requirement {_mask}");
+#endif
             if (_mask == MaskManager.Instance.CurrentMask)
             {
                 _coll.enabled = false;
