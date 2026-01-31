@@ -5,6 +5,8 @@ namespace GGJ2026.Prop
 {
     public interface IInteractible
     {
+        public void Prepare(CustomPlayerController player);
+
         public void Interact(CustomPlayerController player);
 
         public void CancelInteraction(CustomPlayerController player);

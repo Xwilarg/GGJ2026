@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GGJ2026.Prop;
+using UnityEngine;
 
 namespace GGJ2026.Map
 {
@@ -6,5 +7,10 @@ namespace GGJ2026.Map
     {
         [SerializeField]
         private GameObject[] _presets;
+
+        [SerializeField]
+        private Mirror _leftMirror, _rightMirror;
+        public Mirror LeftMirror => _leftMirror;
+        public Mirror RightMirror => _rightMirror;
     }
 }

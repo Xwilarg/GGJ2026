@@ -55,6 +55,7 @@ namespace GGJ2026.Player
                     _currentInteraction.CancelInteraction(this);
                 }
                 _currentInteraction = interaction;
+                _currentInteraction.Prepare(this);
                 _interactionText.gameObject.SetActive(true);
             }
         }

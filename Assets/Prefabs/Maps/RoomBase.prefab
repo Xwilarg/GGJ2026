@@ -198,6 +198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Map.RuntimeRoom
   _presets:
   - {fileID: 8700111468962514327}
+  _leftMirror: {fileID: 5267618836704269478}
+  _rightMirror: {fileID: 6848773458344443801}
 --- !u!1 &5224799085538475006
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +684,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4675652423626611265, guid: b451322eb3246584fa31abf4096a1c10, type: 3}
   m_PrefabInstance: {fileID: 7431047930481083589}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6848773458344443801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4047567920447126364, guid: b451322eb3246584fa31abf4096a1c10, type: 3}
+  m_PrefabInstance: {fileID: 7431047930481083589}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f815b51aeec4004aa3e9de693029cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Prop.Mirror
 --- !u!1001 &7849201961312457716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -810,3 +823,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4675652423626611265, guid: b451322eb3246584fa31abf4096a1c10, type: 3}
   m_PrefabInstance: {fileID: 8156457597615894522}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5267618836704269478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4047567920447126364, guid: b451322eb3246584fa31abf4096a1c10, type: 3}
+  m_PrefabInstance: {fileID: 8156457597615894522}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f815b51aeec4004aa3e9de693029cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Prop.Mirror
