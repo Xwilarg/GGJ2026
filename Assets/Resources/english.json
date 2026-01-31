@@ -2,6 +2,9 @@
     "see_intro": "You see {0}",
     "press_to_interact": "Press 'E' to use this mask",
 
+    "memory_bad": "The memory fizzle out until it becomes a blurry mess",
+    "memory_good": "The memory fades in front of you, showing a passage",
+
     "joy_1": "an orchard full of juicy fruits",
     "joy_2": "a fire warming a house from a chimney",
     "joy_3": "a buffet full of full of meats and vegetables",

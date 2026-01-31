@@ -53,7 +53,7 @@ namespace GGJ2026.Player
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent<IInteractible>(out var interaction))
+            if (other.TryGetComponent<IInteractible>(out var interaction) && interaction.CanInteract(this))
             {
                 if (_currentInteraction != null)
                 {
@@ -201,6 +201,7 @@ namespace GGJ2026.Player
             if (value.phase == InputActionPhase.Started && _currentInteraction != null)
             {
                 _currentInteraction.Interact(this);
+                _interactionText.gameObject.SetActive(false);
             }
         }
 
