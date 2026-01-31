@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de5eb778bc984fa4db3e85e9ddfbc6bf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -193,6 +197,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de5eb778bc984fa4db3e85e9ddfbc6bf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1946942274482765049}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de5eb778bc984fa4db3e85e9ddfbc6bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9141987617888204491}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de5eb778bc984fa4db3e85e9ddfbc6bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2743928056981252031}
   m_SourcePrefab: {fileID: 100100000, guid: de5eb778bc984fa4db3e85e9ddfbc6bf, type: 3}
 --- !u!4 &3504069837277829168 stripped
 Transform:
@@ -226,3 +236,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9141987617888204491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317584658300355210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f48d2bed2a55ec14d81f32eb3becbc5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wall
+  IsTransparent: 0
+  BeingLookedAt: 0
+--- !u!135 &2743928056981252031
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317584658300355210}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.98
+  m_Center: {x: 0.005325854, y: -1.2551961, z: 0.013804108}
