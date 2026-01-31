@@ -23,5 +23,8 @@ namespace GGJ2026.SO
 
         public string BaseLine;
         public int LineCount;
+
+        public AudioClip SFX;
+        public string AnimationName;
     }
 }

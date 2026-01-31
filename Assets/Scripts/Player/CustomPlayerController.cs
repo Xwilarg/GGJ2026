@@ -18,9 +18,11 @@ namespace GGJ2026.Player
         [SerializeField]
         private TMP_Text _interactionText;
 
+        [SerializeField]
+        private Animator _animPlayer, _animMask;
+
         private SpriteRenderer _sr;
         private Rigidbody _rb;
-        private Animator _anim;
         private Vector2 _rawMov;
         private Camera _cam;
         private float _yJumpForce;
@@ -35,12 +37,14 @@ namespace GGJ2026.Player
 
         private Wall _lastSeenWall;
 
+        private float _maskSwitchTimer;
+
         private void Awake()
         {
             _sr = GetComponentInChildren<SpriteRenderer>();
             _rb = GetComponent<Rigidbody>();
             _cam = Camera.main;
-            _anim = GetComponentInChildren<Animator>();
+            _animPlayer = GetComponentInChildren<Animator>();
             _sfxController = GetComponent<SFXPlayerController>();
 
             _interactionText.gameObject.SetActive(false);
@@ -83,6 +87,12 @@ namespace GGJ2026.Player
             }
 
             MaskManager.Instance.CurrentMask = masks[0].Type;
+
+            MaskManager.Instance.OnMaskChange.AddListener((mask) =>
+            {
+                _maskSwitchTimer = 0f;
+                _animMask.Play("Switch");
+            });
         }
 
         private void AddButton(MaskInfo mask, int counter)
@@ -111,6 +121,16 @@ namespace GGJ2026.Player
                 _yJumpForce -= Time.deltaTime * _info.SimulatedGravityForce;
                 _rb.AddForce(Vector3.up * _yJumpForce);
             }*/
+
+            if (_maskSwitchTimer < 1f)
+            {
+                _maskSwitchTimer += Time.deltaTime;
+
+                if (_maskSwitchTimer >= 1f)
+                {
+                    _animMask.Play(GameManager.Instance.GetMask(MaskManager.Instance.CurrentMask).AnimationName);
+                }
+            }
         }
 
         private void FixedUpdate()
@@ -134,8 +154,8 @@ namespace GGJ2026.Player
                 }
             }
 
-            _anim.SetBool("IsWalking", mov.magnitude > 0f);
-            _anim.SetBool("IsMidAir", _isMidAirAfterJump);
+            _animPlayer.SetBool("IsWalking", mov.magnitude > 0f);
+            _animPlayer.SetBool("IsMidAir", _isMidAirAfterJump);
 
             CheckWallForTransparency();
 
@@ -170,7 +190,7 @@ namespace GGJ2026.Player
                 StartCoroutine(RefreshJump());
 
                 _isMidAirAfterJump = true;
-                _anim.SetTrigger("Jump");
+                _animPlayer.SetTrigger("Jump");
                 _sfxController.PlayRandomJump();
             }
         }
