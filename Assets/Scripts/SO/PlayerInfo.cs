@@ -26,5 +26,7 @@ namespace GGJ2026.SO
 
         public AudioClip SFX;
         public string AnimationName;
+
+        public TextAsset EndingStory;
     }
 }
