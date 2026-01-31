@@ -1,32 +1,36 @@
 {
-    "see_intro": "You see {0}",
-    "press_to_interact": "Press 'E' to use this mask",
+  "see_intro": "You see {0}",
+  "press_to_interact": "Press 'E' to use this mask",
 
-    "play": "Play",
-    "credits": "Credits",
+  "play": "Play",
+  "credits": "Credits",
 
-    "credits_1": "Artist animator, proud father of the vessel",
-    "credits_2": "Music",
-    "credits_3": "Sound design",
-    "credits_4": "Programming and writing",
-    "credits_5": "Emotional support",
-    "credits_6": "Everything that is not listed above",
+  "credits_1": "Artist animator, proud father of the vessel",
+  "credits_2": "Music",
+  "credits_3": "Sound design",
+  "credits_4": "Programming and writing",
+  "credits_5": "Emotional support",
+  "credits_6": "Everything that is not listed above",
 
-    "memory_bad": "The memory fizzle out until it becomes a blurry mess",
-    "memory_good": "The memory fades in front of you, showing a passage",
+  "memory_bad": "The memory fizzle out until it becomes a blurry mess",
+  "memory_good": "The memory fades in front of you, showing a passage",
 
-    "joy_1": "an orchard full of juicy fruits",
-    "joy_2": "a fire warming a house from a chimney",
-    "joy_3": "a buffet full of full of meats and vegetables",
-    "joy_4": "a christmas tree under which are countless presents",
-    "joy_5": "a kid in front of a birthday cake",
+  "joy_1": "an orchard full of juicy fruits",
+  "joy_2": "a fire warming a house from a chimney",
+  "joy_3": "a buffet full of full of meats and vegetables",
+  "joy_4": "a christmas tree under which are countless presents",
+  "joy_5": "a kid in front of a birthday cake",
 
-    "sorrow_1": "a huge cemetary scattered by tombs",
-    "sorrow_2": "a forest filled with dead trees",
-    "sorrow_3": "a soldier in an armored wagon, waving at his wife",
-    "sorrow_4": "a sheet covering a body in an empty street",
+  "sorrow_1": "a huge cemetary scattered by tombs",
+  "sorrow_2": "a forest filled with dead trees",
+  "sorrow_3": "a soldier in an armored wagon, waving at his wife",
+  "sorrow_4": "a sheet covering a body in an empty street",
 
-    "wrath_1": "a battlefield, soldiers fighting afar",
-    "wrath_2": "a young man holding a knife, watching a corronation from afar",
-    "wrath_3": "a man spreading gasoline on a blood-covered wooden floor"
+  "wrath_1": "a battlefield, soldiers fighting afar",
+  "wrath_2": "a young man holding a knife, watching a corronation from afar",
+  "wrath_3": "a man spreading gasoline on a blood-covered wooden floor",
+
+  "ending_wrath": "Injustice. Selfless, forcedly induced injustice. It boils within, with desperation, with frustration... The incapacity of fighting back, even when the strength that it requires chars your heart. An egoist feeling of inner scarring, born from a strong sense of justice, of defense and of fear. Its the idea that comes from the necessity of change. Change for the better, it's the reaction that comes from the inability to process, or let yourself live an experience without fighting back, without feeling it thoroughly... Even when you truly can't. Let it boil, burn and char. Its your natural need to protect your mind, your heart, and those who you care about. Let it's warmth be the shield of your love, because wrath is what makes you move forward even when the biggest obstacles lie ahead. Move with anger, move with determination but most importantly, move with a passionate wrath... Towards a better, fairer justice.",
+
+  "ending_blank": "Masks are options. Masks are shields. Masks are cover-ups. Masks are feelings. Masks are you, and you are masks... They are the greatest tool to hide, to protect yourself, to feel comfort... Like the breeze of emptiness caressing against your cold skin. In a world of differences, masks allows you to assimilate yourself into its groups, to feel accommodated, included and most importantly obtain that sense of belonging... We travel wearing them, even when they are heavy... Even when they do not convey what truly is behind... And there is nothing really wrong with it, in fact there is beauty in the work that is required to build them, in the ability of adaptation and desire to belong... But there is also something wondrous in the process of accepting them, and feeling safety in removing them, either with those who matter or in the comfort of solitude... Masks are a tool, an aid and sometimes even a burden... They can be useful, and unfair, and sometimes when we wear them for too long we forget what is behind, we decline the feelings from they were bornt. But here you are, you have assimilated them into you, have they been removed? Have they become part of your... Maybe they always were part of yourself. It is for you to decide, because you control your options, as deploy your shields and now you should have the strength to show yourself without cover, with your feelings. To them, for you."
 }
