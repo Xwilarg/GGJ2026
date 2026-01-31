@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpriteLitSpecial
+  m_Name: MaskSpecialLit
   m_Shader: {fileID: -6465566751694194690, guid: b55de75ac54064644a30f41115a66e62, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -44,8 +44,8 @@ Material:
     m_Floats:
     - _Alpha: 1
     - _Emission: 1
-    - _NoiseOpacity: 0.34
-    - _NoiseScale: 200
+    - _NoiseOpacity: 0.81
+    - _NoiseScale: 199.97
     - _Speed: 0.005
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}

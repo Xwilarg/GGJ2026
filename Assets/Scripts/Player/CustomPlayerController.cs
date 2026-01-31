@@ -10,6 +10,8 @@ namespace GGJ2026.Player
     {
         [SerializeField]
         private PlayerInfo _info;
+        [SerializeField] 
+        private Transform _spritesHolder;
 
         private SpriteRenderer _sr;
         private Rigidbody _rb;
@@ -29,7 +31,7 @@ namespace GGJ2026.Player
             _sr = GetComponentInChildren<SpriteRenderer>();
             _rb = GetComponent<Rigidbody>();
             _cam = Camera.main;
-            _anim = GetComponent<Animator>();
+            _anim = GetComponentInChildren<Animator>();
             _sfxController = GetComponent<SFXPlayerController>();
         }
 
@@ -55,7 +57,11 @@ namespace GGJ2026.Player
         {
             if (_rawMov.x != 0f)
             {
-                _sr.flipX = _rawMov.x > 0f;
+                Vector3 spritesScale = _spritesHolder.transform.localScale;
+
+                spritesScale.x = _rawMov.x < 0 ? Mathf.Abs(spritesScale.x) : -Mathf.Abs(spritesScale.x);
+
+                _spritesHolder.transform.localScale = spritesScale;
             }
 
             if (_yJumpForce > 0f)
