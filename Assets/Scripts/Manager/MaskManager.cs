@@ -11,6 +11,9 @@ namespace GGJ2026.Manager
     {
         public static MaskManager Instance { private set; get; }
 
+        [SerializeField]
+        private AudioSource _maskSfx;
+
         private MaskType _currentMask;
         public MaskType CurrentMask
         {
@@ -21,6 +24,8 @@ namespace GGJ2026.Manager
                 {
                     _currentMask = value;
                     OnMaskChange.Invoke(value);
+
+                    _maskSfx.PlayOneShot(GameManager.Instance.GetMask(value).SFX);
                 }
             }
         }
