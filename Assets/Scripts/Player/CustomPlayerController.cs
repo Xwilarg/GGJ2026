@@ -7,12 +7,13 @@ namespace GGJ2026.Player
     public class CustomPlayerController : MonoBehaviour
     {
         [SerializeField]
-        private float _speed, _jumpForce, _jumpDist;
+        private float _speed, _jumpForce, _jumpDist, _jumpForceReduc;
 
         private SpriteRenderer _sr;
         private Rigidbody _rb;
         private Vector2 _rawMov;
         private Camera _cam;
+        private float _yJumpForce;
 
         private bool _canJump = true;
 
@@ -28,6 +29,12 @@ namespace GGJ2026.Player
             if (_rawMov.x != 0f)
             {
                 _sr.flipX = _rawMov.x > 0f;
+            }
+
+            if (_yJumpForce > 0f)
+            {
+                _yJumpForce -= Time.deltaTime * _jumpForceReduc;
+                _rb.AddForce(Vector3.up * _yJumpForce);
             }
         }
 
@@ -52,7 +59,7 @@ namespace GGJ2026.Player
             {
                 _canJump = false;
                 _rb.linearVelocity = new(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
-                _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+                _yJumpForce = _jumpForce;
                 StartCoroutine(RefreshJump());
             }
         }
