@@ -13,17 +13,20 @@ namespace GGJ2026.Player
 
         private SpriteRenderer _sr;
         private Rigidbody _rb;
+        private Animator _anim;
         private Vector2 _rawMov;
         private Camera _cam;
         private float _yJumpForce;
 
         private bool _canJump = true;
+        private bool _isMidAirAfterJump = false;
 
         private void Awake()
         {
             _sr = GetComponentInChildren<SpriteRenderer>();
             _rb = GetComponent<Rigidbody>();
             _cam = Camera.main;
+            _anim = GetComponent<Animator>();
         }
 
         private void Start()
@@ -63,10 +66,18 @@ namespace GGJ2026.Player
             Vector3 mov = _cam.transform.forward * _rawMov.y + _cam.transform.right * _rawMov.x;
             mov.y = 0f;
 
+            if (_isMidAirAfterJump && IsOnFloor)
+            {
+                _isMidAirAfterJump = false;
+            }
+            _anim.SetBool("IsWalking", mov.magnitude > 0f);
+            _anim.SetBool("IsMidAir", _isMidAirAfterJump);
+
             _rb.linearVelocity = mov.normalized * _info.MovementSpeed;
         }
 
-        private bool CanJump => _canJump && Physics.Raycast(transform.position, Vector3.down, _info.MinDistanceWithFloorForJump, LayerMask.GetMask("World"));
+        private bool IsOnFloor => Physics.Raycast(transform.position, Vector3.down, _info.MinDistanceWithFloorForJump, LayerMask.GetMask("World"));
+        private bool CanJump => _canJump && IsOnFloor;
 
         private void OnMaskSelect(InputAction.CallbackContext value, int key)
         {
@@ -89,6 +100,9 @@ namespace GGJ2026.Player
                 _rb.linearVelocity = new(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
                 _yJumpForce = _info.JumpForce;
                 StartCoroutine(RefreshJump());
+
+                _isMidAirAfterJump = true;
+                _anim.SetTrigger("Jump");
             }
         }
 
