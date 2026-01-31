@@ -2,6 +2,9 @@
     "see_intro": "You see {0}",
     "press_to_interact": "Press 'E' to use this mask",
 
+    "memory_bad": "The memory fizzle out until it becomes a blurry mess",
+    "memory_good": "The memory fades in front of you, showing a passage",
+
     "joy_1": "an orchard full of juicy fruits",
     "joy_2": "a fire warming a house from a chimney",
     "joy_3": "a buffet full of full of meats and vegetables",
@@ -10,7 +13,7 @@
 
     "sorrow_1": "a huge cemetary scattered by tombs",
     "sorrow_2": "a forest filled with dead trees",
-    "sorrow_3": "a soldier in a armored wagon, waving at his wife",
+    "sorrow_3": "a soldier in an armored wagon, waving at his wife",
     "sorrow_4": "a sheet covering a body in an empty street",
 
     "wrath_1": "a battlefield, soldiers fighting afar",

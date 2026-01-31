@@ -1,5 +1,6 @@
 ﻿using GGJ2026.Manager;
 using GGJ2026.Player;
+using Sketch.Translation;
 using System.Linq;
 using UnityEngine;
 
@@ -36,12 +37,19 @@ namespace GGJ2026.Prop
         {
             if (_isUsed) return;
 
+#if UNITY_EDITOR
+            Debug.Log($"[MIRROR] Used mask {MaskManager.Instance.CurrentMask} on requirement {_mask}");
+#endif
             if (_mask == MaskManager.Instance.CurrentMask)
             {
                 _coll.enabled = false;
+                UIManager.Instance.SetDescriptionText(Translate.Instance.Tr("memory_good"));
+            }
+            else
+            {
+                UIManager.Instance.SetDescriptionText(Translate.Instance.Tr("memory_bad"));
             }
             _isUsed = true;
-            UIManager.Instance.SetDescriptionText(string.Empty);
         }
 
         public void Prepare(CustomPlayerController player)
@@ -49,6 +57,11 @@ namespace GGJ2026.Prop
             if (_isUsed) return;
 
             UIManager.Instance.SetDescriptionText(AssociatedLine);
+        }
+
+        public bool CanInteract(CustomPlayerController player)
+        {
+            return !_isUsed;
         }
     }
 }

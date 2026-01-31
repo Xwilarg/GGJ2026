@@ -52,7 +52,7 @@ public class Wall : MonoBehaviour
 
     private void SetTransparency(bool makeTransparent)
     {
-        _targetTransition = makeTransparent ? .6f : 0f;
+        _targetTransition = makeTransparent ? .4f : 0f;
         _transitionStartTime = Time.time;
         _isTransitioning = true;
     }
