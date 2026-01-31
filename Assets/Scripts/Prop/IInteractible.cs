@@ -1,0 +1,12 @@
+﻿using GGJ2026.Player;
+using UnityEngine;
+
+namespace GGJ2026.Prop
+{
+    public interface IInteractible
+    {
+        public void Interact(CustomPlayerController player);
+
+        public EntityId Key { get; }
+    }
+}
