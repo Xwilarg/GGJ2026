@@ -5751,6 +5751,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1323216527 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5960123154985005588, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+  m_PrefabInstance: {fileID: 1894729703861350430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1420100167
 GameObject:
   m_ObjectHideFlags: 0
@@ -6005,6 +6010,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b152d53eef71814080ccfd9207dcc2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: xwilarg.eu.zirk.sketch.visualnovel::Sketch.VN.TextDisplay
+--- !u!95 &1490839054 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7793152016244428874, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+  m_PrefabInstance: {fileID: 1894729703861350430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1545260107
 GameObject:
   m_ObjectHideFlags: 0
@@ -6221,6 +6231,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1309412088803736129, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+      propertyPath: _animMask
+      value: 
+      objectReference: {fileID: 1490839054}
+    - target: {fileID: 1309412088803736129, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+      propertyPath: _animPlayer
+      value: 
+      objectReference: {fileID: 1323216527}
     - target: {fileID: 1309412088803736129, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
       propertyPath: _interactionText
       value: 
