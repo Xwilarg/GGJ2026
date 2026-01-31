@@ -4,6 +4,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
 
 namespace GGJ2026.Player
 {
@@ -11,7 +12,7 @@ namespace GGJ2026.Player
     {
         [SerializeField]
         private PlayerInfo _info;
-        [SerializeField] 
+        [SerializeField]
         private Transform _spritesHolder;
 
         [SerializeField]
@@ -43,12 +44,12 @@ namespace GGJ2026.Player
 
         private void OnTriggerEnter(Collider other)
         {
-            
+
         }
 
         private void OnTriggerExit(Collider other)
         {
-            
+
         }
 
         private void Start()
@@ -111,6 +112,8 @@ namespace GGJ2026.Player
             _anim.SetBool("IsWalking", mov.magnitude > 0f);
             _anim.SetBool("IsMidAir", _isMidAirAfterJump);
 
+            CheckWallForTransparency();
+
             var dir = mov.normalized * _info.MovementSpeed;
             _rb.linearVelocity = new Vector3(dir.x, _rb.linearVelocity.y, dir.z);
         }
@@ -160,6 +163,21 @@ namespace GGJ2026.Player
         {
             yield return new WaitForSeconds(1f);
             _canJump = true;
+        }
+
+        private void CheckWallForTransparency()
+        {
+            RaycastHit hit;
+            var target = _cam.transform;
+            if (Physics.Linecast(transform.position, target.position, out hit, LayerMask.GetMask("World")))
+            {
+                var wall = hit.transform.GetComponent<Wall>();
+                if (wall != null)
+                {
+                    wall.BeingLookedAt = true;
+                    wall.HandleTransparency();
+                }
+            }
         }
     }
 }
