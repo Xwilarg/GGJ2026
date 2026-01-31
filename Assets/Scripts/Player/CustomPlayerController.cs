@@ -37,6 +37,8 @@ namespace GGJ2026.Player
 
         private Wall _lastSeenWall;
 
+        private float _maskSwitchTimer;
+
         private void Awake()
         {
             _sr = GetComponentInChildren<SpriteRenderer>();
@@ -85,6 +87,12 @@ namespace GGJ2026.Player
             }
 
             MaskManager.Instance.CurrentMask = masks[0].Type;
+
+            MaskManager.Instance.OnMaskChange.AddListener((mask) =>
+            {
+                _maskSwitchTimer = 0f;
+                _animMask.Play("Switch");
+            });
         }
 
         private void AddButton(MaskInfo mask, int counter)
@@ -113,6 +121,16 @@ namespace GGJ2026.Player
                 _yJumpForce -= Time.deltaTime * _info.SimulatedGravityForce;
                 _rb.AddForce(Vector3.up * _yJumpForce);
             }*/
+
+            if (_maskSwitchTimer < 1f)
+            {
+                _maskSwitchTimer += Time.deltaTime;
+
+                if (_maskSwitchTimer >= 1f)
+                {
+                    _animMask.Play(GameManager.Instance.GetMask(MaskManager.Instance.CurrentMask).AnimationName);
+                }
+            }
         }
 
         private void FixedUpdate()
