@@ -2,5 +2,7 @@
 {
     public class Room
     {
+        public RuntimeRoom RR;
+        public Door LeftDoor, RightDoor;
     }
 }

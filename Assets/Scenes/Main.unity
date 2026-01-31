@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 744509447}
   - component: {fileID: 744509448}
   - component: {fileID: 744509449}
+  - component: {fileID: 744509450}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -544,6 +545,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e312db21bb721f4da88c2785f1e70bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Manager.DebugManager
+--- !u!114 &744509450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744509444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523a4f27f4f70c146b5c49bfee332be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Manager.MapManager
+  _roomPrefab: {fileID: 3439335315714720851, guid: a6642c69a31cfbb4682d95d3f8b29712, type: 3}
+  _genInfo: {fileID: 11400000, guid: ee852564dcbfa574ab019f672b72c90a, type: 2}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

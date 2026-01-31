@@ -1,6 +1,4 @@
-using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace GGJ2026.Manager
 {
@@ -12,10 +10,10 @@ namespace GGJ2026.Manager
         {
             Instance = this;
 
-            if (!SceneManager.GetAllScenes().Any(x => x.name.ToLowerInvariant() == "level"))
+            /*if (!SceneManager.GetAllScenes().Any(x => x.name.ToLowerInvariant() == "level"))
             {
                 SceneManager.LoadScene("Level", LoadSceneMode.Additive);
-            }
+            }*/
         }
     }
 }
