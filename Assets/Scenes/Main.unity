@@ -1240,10 +1240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539afd51216f45346a4f4e712ce7ebac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Player.CustomPlayerController
-  _speed: 20
-  _jumpForce: 200
-  _jumpDist: 4.5
-  _jumpForceReduc: 300
+  _info: {fileID: 11400000, guid: 182c578390dd9b640a7a3750e2106809, type: 2}
 --- !u!136 &8165484598053482450
 CapsuleCollider:
   m_ObjectHideFlags: 0

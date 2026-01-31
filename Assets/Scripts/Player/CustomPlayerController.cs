@@ -1,3 +1,4 @@
+using GGJ2026.SO;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,7 +8,7 @@ namespace GGJ2026.Player
     public class CustomPlayerController : MonoBehaviour
     {
         [SerializeField]
-        private float _speed, _jumpForce, _jumpDist, _jumpForceReduc;
+        private PlayerInfo _info;
 
         private SpriteRenderer _sr;
         private Rigidbody _rb;
@@ -33,7 +34,7 @@ namespace GGJ2026.Player
 
             if (_yJumpForce > 0f)
             {
-                _yJumpForce -= Time.deltaTime * _jumpForceReduc;
+                _yJumpForce -= Time.deltaTime * _info.SimulatedGravityForce;
                 _rb.AddForce(Vector3.up * _yJumpForce);
             }
         }
@@ -43,10 +44,10 @@ namespace GGJ2026.Player
             Vector3 mov = _cam.transform.forward * _rawMov.y + _cam.transform.right * _rawMov.x;
             mov.y = 0f;
 
-            _rb.linearVelocity = mov.normalized * _speed;
+            _rb.linearVelocity = mov.normalized * _info.MovementSpeed;
         }
 
-        private bool CanJump => _canJump && Physics.Raycast(transform.position, Vector3.down, _jumpForce, LayerMask.GetMask("World"));
+        private bool CanJump => _canJump && Physics.Raycast(transform.position, Vector3.down, _info.MinDistanceWithFloorForJump, LayerMask.GetMask("World"));
 
         public void OnMove(InputAction.CallbackContext value)
         {
@@ -59,7 +60,7 @@ namespace GGJ2026.Player
             {
                 _canJump = false;
                 _rb.linearVelocity = new(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
-                _yJumpForce = _jumpForce;
+                _yJumpForce = _info.JumpForce;
                 StartCoroutine(RefreshJump());
             }
         }
