@@ -1,7 +1,9 @@
 ﻿using GGJ2026.Map;
+using GGJ2026.Player;
 using GGJ2026.SO;
 using Sketch.Translation;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace GGJ2026.Manager
@@ -47,16 +49,22 @@ namespace GGJ2026.Manager
                 }
             }
 
+            var maskTypes = System.Enum.GetValues(typeof(MaskType)).Cast<MaskType>().ToArray();
+
             foreach (var r in _rooms)
             {
                 if (r.LeftDoor != null)
                 {
+                    r.LeftDoor.Requirement = maskTypes[Random.Range(0, maskTypes.Length)];
+
                     var req = GameManager.Instance.GetMask(r.LeftDoor.Requirement);
                     r.RR.LeftMirror.AssociatedLine = Translate.Instance.Tr("see_intro", Translate.Instance.Tr($"{req.BaseLine}_{Random.Range(1, req.LineCount + 1)}"));
                     r.RR.LeftMirror.SetAssociatedMask(r.LeftDoor.Requirement);
                 }
                 if (r.RightDoor != null)
                 {
+                    r.RightDoor.Requirement = maskTypes[Random.Range(0, maskTypes.Length)];
+
                     var req = GameManager.Instance.GetMask(r.RightDoor.Requirement);
                     r.RR.RightMirror.AssociatedLine = Translate.Instance.Tr("see_intro", Translate.Instance.Tr($"{req.BaseLine}_{Random.Range(1, req.LineCount + 1)}"));
                     r.RR.RightMirror.SetAssociatedMask(r.RightDoor.Requirement);
