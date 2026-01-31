@@ -5528,7 +5528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Manager.UIManager
   _maskBtnContainer: {fileID: 606876642}
   _maskBtnPrefab: {fileID: 5116117169365326868, guid: 5d524f3174b3226478210ac85b91e782, type: 3}
-  _descriptionText: {fileID: 0}
+  _descriptionText: {fileID: 1424980481}
 --- !u!114 &744509449
 MonoBehaviour:
   m_ObjectHideFlags: 0
