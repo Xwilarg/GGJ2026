@@ -45,6 +45,10 @@ namespace GGJ2026.Manager
                     _rooms.Add(room);
                 }
             }
+
+            foreach (var r in _rooms)
+            {
+            }
         }
 
         private void OnDrawGizmos()
