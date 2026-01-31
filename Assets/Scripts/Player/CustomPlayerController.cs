@@ -2,6 +2,7 @@ using GGJ2026.Manager;
 using GGJ2026.Prop;
 using GGJ2026.SO;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -35,7 +36,7 @@ namespace GGJ2026.Player
 
         private IInteractible _currentInteraction;
 
-        private Wall _lastSeenWall;
+        private List<Wall> _lastSeenWalls = new();
 
         private float _maskSwitchTimer;
 
@@ -221,37 +222,40 @@ namespace GGJ2026.Player
 
         private void CheckWallForTransparency()
         {
-            RaycastHit hit;
+            RaycastHit[] hits;
             var target = _cam.transform;
-            if (Physics.Linecast(transform.position, target.position, out hit, LayerMask.GetMask("World")))
+            hits = Physics.SphereCastAll(transform.position, 6, target.position - transform.position, Vector3.Distance(transform.position, target.position), LayerMask.GetMask("World"));
+
+            // Create a list to track currently visible walls
+            List<Wall> currentlyVisibleWalls = new();
+
+            if (hits.Length > 0)
             {
-                var wall = hit.transform.GetComponent<Wall>();
-                if (wall != null)
+                foreach (var hit in hits)
                 {
-                    if (_lastSeenWall != null && _lastSeenWall != wall)
+                    var wall = hit.transform.GetComponent<Wall>();
+                    if (wall != null)
                     {
-                        _lastSeenWall.BeingLookedAt = false;
-                        _lastSeenWall.HandleTransparency();
+                        wall.BeingLookedAt = true;
+                        wall.HandleTransparency();
+                        currentlyVisibleWalls.Add(wall);
                     }
-                    wall.BeingLookedAt = true;
-                    wall.HandleTransparency();
-                    _lastSeenWall = wall;
-                }
-                else if (_lastSeenWall != null)
-                {
-                    // Hit something that's not a wall
-                    _lastSeenWall.BeingLookedAt = false;
-                    _lastSeenWall.HandleTransparency();
-                    _lastSeenWall = null;
                 }
             }
-            else if (_lastSeenWall != null)
+
+            // Reset walls that are no longer being looked at
+            foreach (var previousWall in _lastSeenWalls)
             {
-                // Nothing hit
-                _lastSeenWall.BeingLookedAt = false;
-                _lastSeenWall.HandleTransparency();
-                _lastSeenWall = null;
+                if (!currentlyVisibleWalls.Contains(previousWall))
+                {
+                    previousWall.BeingLookedAt = false;
+                    previousWall.HandleTransparency();
+                }
             }
+
+            // Update the list of currently seen walls
+            _lastSeenWalls.Clear();
+            _lastSeenWalls.AddRange(currentlyVisibleWalls);
         }
     }
 }
