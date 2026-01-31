@@ -206,6 +206,12 @@ namespace GGJ2026.Player
             }
         }
 
+        public void OnCrouch(InputAction.CallbackContext value)
+        {
+            if (value.phase == InputActionPhase.Started) _animPlayer.SetBool("IsCrouching", true);
+            else if (value.phase == InputActionPhase.Canceled) _animPlayer.SetBool("IsCrouching", false);
+        }
+
         public void OnMaskSelect1(InputAction.CallbackContext value) => OnMaskSelect(value, 1);
         public void OnMaskSelect2(InputAction.CallbackContext value) => OnMaskSelect(value, 2);
         public void OnMaskSelect3(InputAction.CallbackContext value) => OnMaskSelect(value, 3);

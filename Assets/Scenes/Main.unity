@@ -6254,6 +6254,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3628225068911350564, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628225068911350564, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628225068911350564, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8165484598053482445}
+    - target: {fileID: 3628225068911350564, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628225068911350564, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnCrouch
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628225068911350564, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GGJ2026.Player.CustomPlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628225068911350564, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6913834883667259986, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6304,6 +6332,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6913834883667259986, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
   m_PrefabInstance: {fileID: 1894729703861350430}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8165484598053482445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1309412088803736129, guid: b088a59506020114db7cde7bc37ae4f0, type: 3}
+  m_PrefabInstance: {fileID: 1894729703861350430}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539afd51216f45346a4f4e712ce7ebac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Player.CustomPlayerController
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

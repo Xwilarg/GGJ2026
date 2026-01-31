@@ -800,14 +800,14 @@ MonoBehaviour:
     Allen Antoine: {credits_2}
 
     Jorel Ayer:
-    {credits_2}
+    {credits_3}
 
-    Zirk: {credits_3}
+    Zirk: {credits_4}
 
-    Mars Milkshake: {credits_4}
+    Mars Milkshake: {credits_5}
 
     Nans:
-    {credits_5}'
+    {credits_6}'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87750e678e1a91d41ac7e2a78f27b7f6, type: 2}
   m_sharedMaterial: {fileID: -6494242764176426013, guid: 87750e678e1a91d41ac7e2a78f27b7f6, type: 2}
