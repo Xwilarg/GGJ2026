@@ -5122,7 +5122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12327d71fd21cc442bb37c4830038801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Level.MaskAttachedArea
-  _maskType: 1
+  _maskType: 0
 --- !u!1001 &1662031904
 PrefabInstance:
   m_ObjectHideFlags: 0
