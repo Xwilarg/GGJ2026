@@ -1242,6 +1242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Player.CustomPlayerController
   _speed: 10
   _jumpForce: 5
+  _jumpDist: 4.5
 --- !u!136 &8165484598053482450
 CapsuleCollider:
   m_ObjectHideFlags: 0

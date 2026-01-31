@@ -1,18 +1,20 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.PlayerSettings;
 
 namespace GGJ2026.Player
 {
     public class CustomPlayerController : MonoBehaviour
     {
         [SerializeField]
-        private float _speed, _jumpForce;
+        private float _speed, _jumpForce, _jumpDist;
 
         private SpriteRenderer _sr;
         private Rigidbody _rb;
         private Vector2 _rawMov;
         private Camera _cam;
+
+        private bool _canJump = true;
 
         private void Awake()
         {
@@ -37,6 +39,8 @@ namespace GGJ2026.Player
             _rb.linearVelocity = mov.normalized * _speed;
         }
 
+        private bool CanJump => _canJump && Physics.Raycast(transform.position, Vector3.down, _jumpForce, LayerMask.GetMask("World"));
+
         public void OnMove(InputAction.CallbackContext value)
         {
             _rawMov = value.ReadValue<Vector2>();
@@ -44,10 +48,19 @@ namespace GGJ2026.Player
 
         public void OnJump(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started)
+            if (value.phase == InputActionPhase.Started && CanJump)
             {
-
+                _canJump = false;
+                _rb.linearVelocity = new(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
+                _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+                StartCoroutine(RefreshJump());
             }
+        }
+
+        private IEnumerator RefreshJump()
+        {
+            yield return new WaitForSeconds(1f);
+            _canJump = true;
         }
     }
 }
