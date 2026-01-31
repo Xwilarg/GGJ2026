@@ -6,6 +6,7 @@ using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 namespace GGJ2026.Player
 {
@@ -70,20 +71,19 @@ namespace GGJ2026.Player
 
         private void Start()
         {
-            int counter = 1;
-            foreach (var mask in _info.Masks)
+            AddButton(GameManager.Instance.GetMask(_info.StartingMask), 0);
+
+            MaskManager.Instance.CurrentMask = _info.StartingMask;
+        }
+
+        private void AddButton(MaskInfo mask, int counter)
+        {
+            var btn = UIManager.Instance.AddButton(mask.Sprite, counter);
+            btn.onClick.AddListener(() =>
             {
-                var btn = UIManager.Instance.AddButton(mask.Sprite, counter);
-                btn.onClick.AddListener(() =>
-                {
-                    MaskManager.Instance.CurrentMask = mask.Type;
-                });
-                MaskManager.Instance.AddMask(btn);
-
-                counter++;
-            }
-
-            MaskManager.Instance.CurrentMask = _info.Masks[0].Type;
+                MaskManager.Instance.CurrentMask = mask.Type;
+            });
+            MaskManager.Instance.AddMask(btn);
         }
 
         private void Update()
