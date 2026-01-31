@@ -28,8 +28,6 @@ namespace GGJ2026.Prop
 
         public void CancelInteraction(CustomPlayerController player)
         {
-            if (_isUsed) return;
-
             UIManager.Instance.SetDescriptionText(string.Empty);
         }
 
