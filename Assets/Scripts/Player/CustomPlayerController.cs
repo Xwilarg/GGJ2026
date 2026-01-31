@@ -3,14 +3,8 @@ using GGJ2026.Prop;
 using GGJ2026.SO;
 using System.Collections;
 using TMPro;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
-<<<<<<< HEAD
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
-=======
-using static UnityEngine.GraphicsBuffer;
->>>>>>> 0cf0dd843c3cb5b498e128c15882f14acfaece73
 
 namespace GGJ2026.Player
 {
@@ -171,9 +165,9 @@ namespace GGJ2026.Player
 
         public void OnInteract(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started)
+            if (value.phase == InputActionPhase.Started && _currentInteraction != null)
             {
-
+                _currentInteraction.Interact(this);
             }
         }
 
