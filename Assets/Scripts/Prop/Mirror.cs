@@ -28,7 +28,7 @@ namespace GGJ2026.Prop
 
         private void UpdateCollisions(MaskType currMask)
         {
-            _coll.enabled = _mask == currMask;
+            _coll.enabled = _mask != currMask;
         }
 
         EntityId IInteractible.Key => gameObject.GetEntityId();
