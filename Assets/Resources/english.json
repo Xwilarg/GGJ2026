@@ -2,6 +2,16 @@
     "see_intro": "You see {0}",
     "press_to_interact": "Press 'E' to use this mask",
 
+    "play": "Play",
+    "credits": "Credits",
+
+    "credits_1": "Artist animator, proud father of the vessel",
+    "credits_2": "Music",
+    "credits_3": "Sound design",
+    "credits_4": "Programming and writing",
+    "credits_5": "Emotional support",
+    "credits_6": "Everything that is not listed above",
+
     "memory_bad": "The memory fizzle out until it becomes a blurry mess",
     "memory_good": "The memory fades in front of you, showing a passage",
 
