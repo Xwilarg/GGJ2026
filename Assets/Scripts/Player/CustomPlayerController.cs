@@ -95,7 +95,8 @@ namespace GGJ2026.Player
             _anim.SetBool("IsWalking", mov.magnitude > 0f);
             _anim.SetBool("IsMidAir", _isMidAirAfterJump);
 
-            _rb.linearVelocity = mov.normalized * _info.MovementSpeed;
+            var dir = mov.normalized * _info.MovementSpeed;
+            _rb.linearVelocity = new Vector3(dir.x, _rb.linearVelocity.y, dir.z);
         }
 
         private bool IsOnFloor => Physics.Raycast(transform.position, Vector3.down, _info.MinDistanceWithFloorForJump, LayerMask.GetMask("World"));
