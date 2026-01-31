@@ -562,6 +562,7 @@ GameObject:
   - component: {fileID: 744509446}
   - component: {fileID: 744509447}
   - component: {fileID: 744509448}
+  - component: {fileID: 744509449}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -622,6 +623,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Manager.UIManager
   _maskBtnContainer: {fileID: 606876642}
   _maskBtnPrefab: {fileID: 5116117169365326868, guid: 5d524f3174b3226478210ac85b91e782, type: 3}
+--- !u!114 &744509449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744509444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e312db21bb721f4da88c2785f1e70bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Manager.DebugManager
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
