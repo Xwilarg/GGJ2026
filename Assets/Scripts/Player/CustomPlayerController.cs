@@ -33,6 +33,8 @@ namespace GGJ2026.Player
 
         private IInteractible _currentInteraction;
 
+        private Wall _lastSeenWall;
+
         private void Awake()
         {
             _sr = GetComponentInChildren<SpriteRenderer>();
@@ -196,9 +198,29 @@ namespace GGJ2026.Player
                 var wall = hit.transform.GetComponent<Wall>();
                 if (wall != null)
                 {
+                    if (_lastSeenWall != null && _lastSeenWall != wall)
+                    {
+                        _lastSeenWall.BeingLookedAt = false;
+                        _lastSeenWall.HandleTransparency();
+                    }
                     wall.BeingLookedAt = true;
                     wall.HandleTransparency();
+                    _lastSeenWall = wall;
                 }
+                else if (_lastSeenWall != null)
+                {
+                    // Hit something that's not a wall
+                    _lastSeenWall.BeingLookedAt = false;
+                    _lastSeenWall.HandleTransparency();
+                    _lastSeenWall = null;
+                }
+            }
+            else if (_lastSeenWall != null)
+            {
+                // Nothing hit
+                _lastSeenWall.BeingLookedAt = false;
+                _lastSeenWall.HandleTransparency();
+                _lastSeenWall = null;
             }
         }
     }

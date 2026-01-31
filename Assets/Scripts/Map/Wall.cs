@@ -4,15 +4,56 @@ public class Wall : MonoBehaviour
 {
     public bool IsTransparent = false;
     public bool BeingLookedAt = false;
+    private Renderer _renderer;
+
+    private float _transitionStartTime;
+    private float _transitionDuration = 1.5f;
+    private bool _isTransitioning = false;
+    private float _targetTransition;
+
+    private void Start() => _renderer = GetComponent<Renderer>();
     public void HandleTransparency()
     {
-        if (IsTransparent && BeingLookedAt)
+        bool shouldBeTransparent = BeingLookedAt;
+
+        if (shouldBeTransparent && !IsTransparent)
         {
-            print("Making wall transparent");
+            SetTransparency(true);
+            IsTransparent = true;
         }
-        else
+        else if (!shouldBeTransparent && IsTransparent)
         {
-            print("Making wall opaque");
+            SetTransparency(false);
+            IsTransparent = false;
         }
+    }
+
+    private void Update()
+    {
+        HandleTransparency();
+
+        if (_isTransitioning)
+        {
+            float elapsed = Time.time - _transitionStartTime;
+            float progress = Mathf.Clamp01(elapsed / _transitionDuration);
+
+            float currVal = _renderer.material.GetFloat("_Transition");
+            float newVal = Mathf.Lerp(currVal, _targetTransition, progress);
+
+            _renderer.material.SetFloat("_Transition", newVal);
+
+            if (progress >= 1f)
+            {
+                _isTransitioning = false;
+                _renderer.material.SetFloat("_Transition", _targetTransition);
+            }
+        }
+    }
+
+    private void SetTransparency(bool makeTransparent)
+    {
+        _targetTransition = makeTransparent ? .6f : 0f;
+        _transitionStartTime = Time.time;
+        _isTransitioning = true;
     }
 }
