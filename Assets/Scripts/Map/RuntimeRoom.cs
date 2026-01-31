@@ -12,6 +12,17 @@ namespace GGJ2026.Map
         private Mirror _leftMirror, _rightMirror;
         public Mirror LeftMirror => _leftMirror;
         public Mirror RightMirror => _rightMirror;
+        public GameObject _wallLeft, _wallRight;
+        public void AddWallLeft()
+        {
+            _wallLeft.SetActive(true);
+            _leftMirror.gameObject.SetActive(false);
+        }
+        public void AddWallRight()
+        {
+            _wallRight.SetActive(true);
+            _rightMirror.gameObject.SetActive(false);
+        }
 
         private void Awake()
         {
