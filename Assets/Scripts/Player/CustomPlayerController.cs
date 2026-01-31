@@ -21,12 +21,16 @@ namespace GGJ2026.Player
         private bool _canJump = true;
         private bool _isMidAirAfterJump = false;
 
+        private SFXPlayerController _sfxController;
+        private float _footstepDelay;
+
         private void Awake()
         {
             _sr = GetComponentInChildren<SpriteRenderer>();
             _rb = GetComponent<Rigidbody>();
             _cam = Camera.main;
             _anim = GetComponent<Animator>();
+            _sfxController = GetComponent<SFXPlayerController>();
         }
 
         private void Start()
@@ -69,7 +73,19 @@ namespace GGJ2026.Player
             if (_isMidAirAfterJump && IsOnFloor)
             {
                 _isMidAirAfterJump = false;
+                _sfxController.PlayRandomJumpLand();
             }
+
+            if (!_isMidAirAfterJump && mov.magnitude > 0f)
+            {
+                _footstepDelay -= Time.fixedDeltaTime;
+                if (_footstepDelay < 0f)
+                {
+                    _sfxController.PlayRandomFootstep();
+                    _footstepDelay = _info.FootstepInterval;
+                }
+            }
+
             _anim.SetBool("IsWalking", mov.magnitude > 0f);
             _anim.SetBool("IsMidAir", _isMidAirAfterJump);
 
@@ -103,6 +119,7 @@ namespace GGJ2026.Player
 
                 _isMidAirAfterJump = true;
                 _anim.SetTrigger("Jump");
+                _sfxController.PlayRandomJump();
             }
         }
 

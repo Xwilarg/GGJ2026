@@ -10,6 +10,7 @@ namespace GGJ2026.SO
         public float JumpForce;
         public float MinDistanceWithFloorForJump;
         public float SimulatedGravityForce;
+        public float FootstepInterval;
 
         public MaskInfo[] Masks;
     }
