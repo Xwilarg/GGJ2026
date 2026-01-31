@@ -33,6 +33,8 @@ namespace GGJ2026.Player
 
         private IInteractible _currentInteraction;
 
+        private Wall _lastSeenWall;
+
         private void Awake()
         {
             _sr = GetComponentInChildren<SpriteRenderer>();
@@ -53,6 +55,7 @@ namespace GGJ2026.Player
                     _currentInteraction.CancelInteraction(this);
                 }
                 _currentInteraction = interaction;
+                _currentInteraction.Prepare(this);
                 _interactionText.gameObject.SetActive(true);
             }
         }
@@ -69,9 +72,17 @@ namespace GGJ2026.Player
 
         private void Start()
         {
-            AddButton(GameManager.Instance.GetMask(_info.StartingMask), 0);
+            var counter = 1;
 
-            MaskManager.Instance.CurrentMask = _info.StartingMask;
+            var masks = GameManager.Instance.GetAllMasks();
+            foreach (var mask in masks)
+            {
+                AddButton(mask, 0);
+
+                counter++;
+            }
+
+            MaskManager.Instance.CurrentMask = masks[0].Type;
         }
 
         private void AddButton(MaskInfo mask, int counter)
@@ -95,11 +106,11 @@ namespace GGJ2026.Player
                 _spritesHolder.transform.localScale = spritesScale;
             }
 
-            if (_yJumpForce > 0f)
+            /*if (_yJumpForce > 0f)
             {
                 _yJumpForce -= Time.deltaTime * _info.SimulatedGravityForce;
                 _rb.AddForce(Vector3.up * _yJumpForce);
-            }
+            }*/
         }
 
         private void FixedUpdate()
@@ -153,8 +164,9 @@ namespace GGJ2026.Player
             if (value.phase == InputActionPhase.Started && CanJump)
             {
                 _canJump = false;
-                _rb.linearVelocity = new(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
-                _yJumpForce = _info.JumpForce;
+                _rb.AddForce(Vector3.up * _info.JumpForce, ForceMode.Impulse);
+                //_rb.linearVelocity = new(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
+                //_yJumpForce = _info.JumpForce;
                 StartCoroutine(RefreshJump());
 
                 _isMidAirAfterJump = true;
@@ -196,9 +208,29 @@ namespace GGJ2026.Player
                 var wall = hit.transform.GetComponent<Wall>();
                 if (wall != null)
                 {
+                    if (_lastSeenWall != null && _lastSeenWall != wall)
+                    {
+                        _lastSeenWall.BeingLookedAt = false;
+                        _lastSeenWall.HandleTransparency();
+                    }
                     wall.BeingLookedAt = true;
                     wall.HandleTransparency();
+                    _lastSeenWall = wall;
                 }
+                else if (_lastSeenWall != null)
+                {
+                    // Hit something that's not a wall
+                    _lastSeenWall.BeingLookedAt = false;
+                    _lastSeenWall.HandleTransparency();
+                    _lastSeenWall = null;
+                }
+            }
+            else if (_lastSeenWall != null)
+            {
+                // Nothing hit
+                _lastSeenWall.BeingLookedAt = false;
+                _lastSeenWall.HandleTransparency();
+                _lastSeenWall = null;
             }
         }
     }

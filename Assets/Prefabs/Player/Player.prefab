@@ -232,6 +232,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Player.CustomPlayerController
   _info: {fileID: 11400000, guid: 182c578390dd9b640a7a3750e2106809, type: 2}
   _spritesHolder: {fileID: 6547807822941019195}
+  _interactionText: {fileID: 0}
+  _maskSfx: {fileID: 0}
 --- !u!114 &2694724392013024977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +262,7 @@ MonoBehaviour:
   _footstepsSfx: {fileID: 592721036892598969}
   _jumpSfx: {fileID: 2315501694093923636}
   _jumpLandSfx: {fileID: 1775979076269131369}
+  _maskSfx: {fileID: 0}
   _footstepsClips:
   - {fileID: 8300000, guid: a3ef0702c3f2fb9449806ca8d4a9f0ae, type: 3}
   - {fileID: 8300000, guid: 80bc3eb0b5e2a5a4bbd4743657f766dc, type: 3}
@@ -711,7 +714,19 @@ MonoBehaviour:
     m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1309412088803736129}
+        m_TargetAssemblyTypeName: GGJ2026.Player.CustomPlayerController, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
     m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
