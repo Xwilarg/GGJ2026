@@ -1,4 +1,4 @@
-﻿using TMPro;
+﻿using GGJ2026.UserInterface;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,8 +22,7 @@ namespace GGJ2026.Manager
         public Button AddButton(Sprite sprite, int count)
         {
             var btn = Instantiate(_maskBtnPrefab, _maskBtnContainer);
-            btn.GetComponentInChildren<Image>().sprite = sprite;
-            btn.GetComponentInChildren<TMP_Text>().text = count.ToString();
+            btn.GetComponentInChildren<MaskButton>().Init(sprite, count.ToString());
             return btn.GetComponent<Button>();
         }
     }

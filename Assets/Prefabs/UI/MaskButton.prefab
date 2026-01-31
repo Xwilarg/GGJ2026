@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 5191065854469166925}
   - component: {fileID: 6862479561560058575}
   - component: {fileID: 8885009911298339947}
+  - component: {fileID: 4340105507649341108}
   m_Layer: 5
   m_Name: MaskButton
   m_TagString: Untagged
@@ -334,3 +335,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4340105507649341108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5116117169365326868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980ca573b1a6156458df842ac4cdd092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.UserInterface.MaskButton
+  _text: {fileID: 1470276145115241416}
+  _image: {fileID: 7483022439373800907}

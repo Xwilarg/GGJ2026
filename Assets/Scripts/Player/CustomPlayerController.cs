@@ -32,7 +32,11 @@ namespace GGJ2026.Player
             foreach (var mask in _info.Masks)
             {
                 var btn = UIManager.Instance.AddButton(mask.Sprite, counter);
-                MaskManager.Instance.AddMask(mask.Type, btn);
+                btn.onClick.AddListener(() =>
+                {
+                    MaskManager.Instance.CurrentMask = mask.Type;
+                });
+                MaskManager.Instance.AddMask(btn);
 
                 counter++;
             }
@@ -66,7 +70,10 @@ namespace GGJ2026.Player
 
         private void OnMaskSelect(InputAction.CallbackContext value, int key)
         {
-
+            if (value.phase == InputActionPhase.Started)
+            {
+                MaskManager.Instance.TryGetMask(key - 1)?.onClick?.Invoke();
+            }
         }
 
         public void OnMove(InputAction.CallbackContext value)
