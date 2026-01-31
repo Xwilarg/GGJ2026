@@ -15,7 +15,7 @@ namespace GGJ2026.Manager
 
         private readonly List<Room> _rooms = new();
 
-        private const int RoomSize = 20;
+        private const int RoomSize = 30;
 
         private void Awake()
         {
