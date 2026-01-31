@@ -3,9 +3,16 @@ using GGJ2026.Player;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace GGJ2026.Manager
 {
+    public class RuntimeMaskData
+    {
+        public MaskType MaskType { set; get; }
+        public Button Button { set; get; }
+    }
+
     public class MaskManager : MonoBehaviour
     {
         public static MaskManager Instance { private set; get; }
@@ -24,6 +31,13 @@ namespace GGJ2026.Manager
             }
         }
         public UnityEvent<MaskType> OnMaskChange { private set; get; } = new();
+
+        private readonly List<RuntimeMaskData> _availableMasks = new();
+
+        public void AddMask(MaskType m, Button b)
+        {
+            _availableMasks.Add(new() { MaskType = m, Button = b });
+        }
 
         private readonly List<MaskAttachedArea> _attachedAreas = new();
 

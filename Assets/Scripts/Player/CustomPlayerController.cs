@@ -1,3 +1,4 @@
+using GGJ2026.Manager;
 using GGJ2026.SO;
 using System.Collections;
 using UnityEngine;
@@ -23,6 +24,20 @@ namespace GGJ2026.Player
             _sr = GetComponentInChildren<SpriteRenderer>();
             _rb = GetComponent<Rigidbody>();
             _cam = Camera.main;
+        }
+
+        private void Start()
+        {
+            int counter = 1;
+            foreach (var mask in _info.Masks)
+            {
+                var btn = UIManager.Instance.AddButton(mask.Sprite, counter);
+                MaskManager.Instance.AddMask(mask.Type, btn);
+
+                counter++;
+            }
+
+            MaskManager.Instance.CurrentMask = _info.Masks[0].Type;
         }
 
         private void Update()

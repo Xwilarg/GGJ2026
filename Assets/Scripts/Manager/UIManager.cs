@@ -1,5 +1,6 @@
-﻿using GGJ2026.Player;
+﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GGJ2026.Manager
 {
@@ -18,9 +19,12 @@ namespace GGJ2026.Manager
             Instance = this;
         }
 
-        public void AddButton(MaskType mask, int count)
+        public Button AddButton(Sprite sprite, int count)
         {
-
+            var btn = Instantiate(_maskBtnPrefab, _maskBtnContainer);
+            btn.GetComponentInChildren<Image>().sprite = sprite;
+            btn.GetComponentInChildren<TMP_Text>().text = count.ToString();
+            return btn.GetComponent<Button>();
         }
     }
 }
