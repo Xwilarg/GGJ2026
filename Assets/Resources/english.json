@@ -3,8 +3,17 @@
     "press_to_interact": "Press 'E' to use this mask",
 
     "joy_1": "an orchard full of juicy fruits",
+    "joy_2": "a fire warming a house from a chimney",
+    "joy_3": "a buffet full of full of meats and vegetables",
+    "joy_4": "a christmas tree under which are countless presents",
+    "joy_5": "a kid in front of a birthday cake",
 
-    "sorrow_1": "a hastly deserted house",
+    "sorrow_1": "a huge cemetary scattered by tombs",
+    "sorrow_2": "a forest filled with dead trees",
+    "sorrow_3": "a soldier in a armored wagon, waving at his wife",
+    "sorrow_4": "a sheet covering a body in an empty street",
 
-    "wrath_1": "a battlefield, soldiers battling from afar"
+    "wrath_1": "a battlefield, soldiers fighting afar",
+    "wrath_2": "a young man holding a knife, watching a corronation from afar",
+    "wrath_3": "a man spreading gasoline on a blood-covered wooden floor"
 }

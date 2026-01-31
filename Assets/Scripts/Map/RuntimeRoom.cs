@@ -12,5 +12,14 @@ namespace GGJ2026.Map
         private Mirror _leftMirror, _rightMirror;
         public Mirror LeftMirror => _leftMirror;
         public Mirror RightMirror => _rightMirror;
+
+        private void Awake()
+        {
+            foreach (var p in _presets)
+            {
+                p.SetActive(false);
+            }
+            _presets[Random.Range(0, _presets.Length)].SetActive(true);
+        }
     }
 }
