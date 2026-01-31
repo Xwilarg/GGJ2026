@@ -1,40 +1,53 @@
-using Sketch.FPS;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.PlayerSettings;
 
 namespace GGJ2026.Player
 {
-    public class CustomPlayerController : PlayerController
+    public class CustomPlayerController : MonoBehaviour
     {
+        [SerializeField]
+        private float _speed, _jumpForce;
+
         private SpriteRenderer _sr;
+        private Rigidbody _rb;
         private Vector2 _rawMov;
+        private Camera _cam;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
             _sr = GetComponentInChildren<SpriteRenderer>();
+            _rb = GetComponent<Rigidbody>();
+            _cam = Camera.main;
         }
 
-        protected override void Update()
+        private void Update()
         {
-            base.Update();
-
             if (_rawMov.x != 0f)
             {
                 _sr.flipX = _rawMov.x > 0f;
             }
         }
 
-        public void OnMovementOverrides(InputAction.CallbackContext value)
+        private void FixedUpdate()
+        {
+            Vector3 mov = _cam.transform.forward * _rawMov.y + _cam.transform.right * _rawMov.x;
+            mov.y = 0f;
+
+            _rb.linearVelocity = mov.normalized * _speed;
+        }
+
+        public void OnMove(InputAction.CallbackContext value)
         {
             _rawMov = value.ReadValue<Vector2>();
-            var delta = 45f;
+        }
 
-            _mov = new Vector2(
-                _rawMov.x * Mathf.Sin(Mathf.Deg2Rad * delta) + _rawMov.y * Mathf.Cos(Mathf.Deg2Rad * delta),
-                -(_rawMov.x * Mathf.Cos(Mathf.Deg2Rad * delta) - _rawMov.y * Mathf.Sin(Mathf.Deg2Rad * delta))
-            );
+        public void OnJump(InputAction.CallbackContext value)
+        {
+            if (value.phase == InputActionPhase.Started)
+            {
+
+            }
         }
     }
 }
