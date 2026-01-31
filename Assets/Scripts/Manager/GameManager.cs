@@ -15,6 +15,9 @@ namespace GGJ2026.Manager
         public MaskInfo GetMask(MaskType type)
             => _masks.First(x => x.Type == type);
 
+        public MaskInfo[] GetAllMasks()
+            => _masks;
+
         private void Awake()
         {
             Instance = this;

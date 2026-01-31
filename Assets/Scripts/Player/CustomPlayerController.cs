@@ -72,9 +72,17 @@ namespace GGJ2026.Player
 
         private void Start()
         {
-            AddButton(GameManager.Instance.GetMask(_info.StartingMask), 0);
+            var counter = 1;
 
-            MaskManager.Instance.CurrentMask = _info.StartingMask;
+            var masks = GameManager.Instance.GetAllMasks();
+            foreach (var mask in masks)
+            {
+                AddButton(mask, 0);
+
+                counter++;
+            }
+
+            MaskManager.Instance.CurrentMask = masks[0].Type;
         }
 
         private void AddButton(MaskInfo mask, int counter)

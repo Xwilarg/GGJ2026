@@ -12,7 +12,7 @@ namespace GGJ2026.SO
         public float SimulatedGravityForce;
         public float FootstepInterval;
 
-        public MaskType StartingMask;
+        // public MaskType StartingMask;
     }
 
     [System.Serializable]
