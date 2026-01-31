@@ -8,6 +8,12 @@ namespace GGJ2026.Prop
 {
     public class Mirror : MonoBehaviour, IInteractible
     {
+        [SerializeField]
+        private AudioSource _loop, _end;
+
+        [SerializeField]
+        private AudioClip[] _endClips;
+
         public string AssociatedLine { set; get; }
         private MaskType _mask;
         private Collider _coll;
@@ -42,11 +48,13 @@ namespace GGJ2026.Prop
             {
                 _coll.enabled = false;
                 UIManager.Instance.SetDescriptionText(Translate.Instance.Tr("memory_good"));
+                _end.PlayOneShot(_endClips[Random.Range(0, _endClips.Length)]);
             }
             else
             {
                 UIManager.Instance.SetDescriptionText(Translate.Instance.Tr("memory_bad"));
             }
+            _loop.Stop();
             _isUsed = true;
         }
 
