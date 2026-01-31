@@ -1,6 +1,7 @@
 using GGJ2026.Manager;
 using GGJ2026.SO;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,9 @@ namespace GGJ2026.Player
         private PlayerInfo _info;
         [SerializeField] 
         private Transform _spritesHolder;
+
+        [SerializeField]
+        private TMP_Text _interactionText;
 
         private SpriteRenderer _sr;
         private Rigidbody _rb;
@@ -33,6 +37,18 @@ namespace GGJ2026.Player
             _cam = Camera.main;
             _anim = GetComponentInChildren<Animator>();
             _sfxController = GetComponent<SFXPlayerController>();
+
+            _interactionText.gameObject.SetActive(false);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            
         }
 
         private void Start()

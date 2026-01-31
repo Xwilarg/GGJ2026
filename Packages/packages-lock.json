@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.inkle.ink-unity-integration": {
+      "version": "https://github.com/inkle/ink-unity-integration.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "770b372042728fc9df9d26ae19287cf6145d47a5"
+    },
     "com.unity.2d.animation": {
       "version": "13.0.4",
       "depth": 1,
@@ -330,6 +337,15 @@
       "source": "git",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.2"
+      },
+      "hash": "2f52945505074189586e75c6fc4a4aac2e509333"
+    },
+    "eu.zirk.sketch.visualnovel": {
+      "version": "https://github.com/Xwilarg/Sketch.git?path=/Packages/eu.zirk.sketch.visualnovel",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.inkle.ink-unity-integration": "1.2.2"
       },
       "hash": "2f52945505074189586e75c6fc4a4aac2e509333"
     },
