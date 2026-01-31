@@ -49,6 +49,11 @@ namespace GGJ2026.Player
 
         private bool CanJump => _canJump && Physics.Raycast(transform.position, Vector3.down, _info.MinDistanceWithFloorForJump, LayerMask.GetMask("World"));
 
+        private void OnMaskSelect(InputAction.CallbackContext value, int key)
+        {
+
+        }
+
         public void OnMove(InputAction.CallbackContext value)
         {
             _rawMov = value.ReadValue<Vector2>();
@@ -64,6 +69,16 @@ namespace GGJ2026.Player
                 StartCoroutine(RefreshJump());
             }
         }
+
+        public void OnMaskSelect1(InputAction.CallbackContext value) => OnMaskSelect(value, 1);
+        public void OnMaskSelect2(InputAction.CallbackContext value) => OnMaskSelect(value, 2);
+        public void OnMaskSelect3(InputAction.CallbackContext value) => OnMaskSelect(value, 3);
+        public void OnMaskSelect4(InputAction.CallbackContext value) => OnMaskSelect(value, 4);
+        public void OnMaskSelect5(InputAction.CallbackContext value) => OnMaskSelect(value, 5);
+        public void OnMaskSelect6(InputAction.CallbackContext value) => OnMaskSelect(value, 6);
+        public void OnMaskSelect7(InputAction.CallbackContext value) => OnMaskSelect(value, 7);
+        public void OnMaskSelect8(InputAction.CallbackContext value) => OnMaskSelect(value, 8);
+        public void OnMaskSelect9(InputAction.CallbackContext value) => OnMaskSelect(value, 9);
 
         private IEnumerator RefreshJump()
         {
