@@ -218,6 +218,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.core": {
       "version": "17.3.0",
       "depth": 1,
@@ -317,11 +324,13 @@
       },
       "url": "https://packages.unity.com"
     },
-    "eu.zirk.sketch.common": {
-      "version": "https://github.com/Xwilarg/Sketch.git?path=/Packages/eu.zirk.sketch.common",
+    "eu.zirk.sketch.translation": {
+      "version": "https://github.com/Xwilarg/Sketch.git?path=/Packages/eu.zirk.sketch.translation",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.2"
+      },
       "hash": "2f52945505074189586e75c6fc4a4aac2e509333"
     },
     "com.unity.modules.accessibility": {
