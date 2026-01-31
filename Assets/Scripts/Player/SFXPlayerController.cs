@@ -5,7 +5,7 @@ namespace GGJ2026.Player
     public class SFXPlayerController : MonoBehaviour
     {
         [SerializeField]
-        private AudioSource _footstepsSfx, _jumpSfx, _jumpLandSfx;
+        private AudioSource _footstepsSfx, _jumpSfx, _jumpLandSfx, _maskSfx;
         [SerializeField]
         private AudioClip[] _footstepsClips, _jumpClips, _jumpLandClips;
 
@@ -20,6 +20,10 @@ namespace GGJ2026.Player
         public void PlayRandomJumpLand()
         {
             _jumpLandSfx.PlayOneShot(_jumpLandClips[Random.Range(0, _jumpLandClips.Length)]);
+        }
+        public void PlayMask(AudioClip clip)
+        {
+            _maskSfx.PlayOneShot(clip);
         }
     }
 }
