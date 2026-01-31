@@ -5660,6 +5660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198c4d0d25af35841a5930d33e075f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Manager.MaskManager
+  _maskSfx: {fileID: 212270881}
 --- !u!114 &744509448
 MonoBehaviour:
   m_ObjectHideFlags: 0
