@@ -15,7 +15,8 @@ namespace GGJ2026.Player
         private PlayerInfo _info;
         [SerializeField]
         private Transform _spritesHolder;
-
+        [SerializeField]
+        private Transform _raycastTarget;
         [SerializeField]
         private TMP_Text _interactionText;
 
@@ -225,7 +226,7 @@ namespace GGJ2026.Player
         {
             RaycastHit[] hits;
             var target = _cam.transform;
-            hits = Physics.SphereCastAll(transform.position, 6, target.position - transform.position, Vector3.Distance(transform.position, target.position), LayerMask.GetMask("World"));
+            hits = Physics.SphereCastAll(_raycastTarget.position, 4, target.position - _raycastTarget.position, Vector3.Distance(_raycastTarget.position, target.position), LayerMask.GetMask("World"));
 
             // Create a list to track currently visible walls
             List<Wall> currentlyVisibleWalls = new();
