@@ -1,4 +1,5 @@
 ﻿using GGJ2026.UserInterface;
+using Sketch.VN;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,9 +15,14 @@ namespace GGJ2026.Manager
         [SerializeField]
         private GameObject _maskBtnPrefab;
 
+        [SerializeField]
+        private TextDisplay _descriptionText;
+
         private void Awake()
         {
             Instance = this;
+
+            _descriptionText.ToDisplay = string.Empty;
         }
 
         public Button AddButton(Sprite sprite, int count)
@@ -24,6 +30,11 @@ namespace GGJ2026.Manager
             var btn = Instantiate(_maskBtnPrefab, _maskBtnContainer);
             btn.GetComponentInChildren<MaskButton>().Init(sprite, count.ToString());
             return btn.GetComponent<Button>();
+        }
+
+        public void SetDescriptionText(string text)
+        {
+            _descriptionText.ToDisplay = text;
         }
     }
 }

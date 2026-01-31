@@ -1,7 +1,9 @@
 using GGJ2026.Manager;
+using GGJ2026.Prop;
 using GGJ2026.SO;
 using System.Collections;
 using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
@@ -31,6 +33,8 @@ namespace GGJ2026.Player
         private SFXPlayerController _sfxController;
         private float _footstepDelay;
 
+        private IInteractible _currentInteraction;
+
         private void Awake()
         {
             _sr = GetComponentInChildren<SpriteRenderer>();
@@ -44,12 +48,20 @@ namespace GGJ2026.Player
 
         private void OnTriggerEnter(Collider other)
         {
-
+            if (other.TryGetComponent<IInteractible>(out var interaction))
+            {
+                if (_currentInteraction != null)
+                {
+                    _currentInteraction.CancelInteraction(this);
+                }
+                _currentInteraction = interaction;
+                _interactionText.gameObject.SetActive(true);
+            }
         }
 
         private void OnTriggerExit(Collider other)
         {
-
+            
         }
 
         private void Start()
@@ -146,6 +158,14 @@ namespace GGJ2026.Player
                 _isMidAirAfterJump = true;
                 _anim.SetTrigger("Jump");
                 _sfxController.PlayRandomJump();
+            }
+        }
+
+        public void OnInteract(InputAction.CallbackContext value)
+        {
+            if (value.phase == InputActionPhase.Started)
+            {
+
             }
         }
 

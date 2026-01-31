@@ -102,6 +102,8 @@ GameObject:
   - component: {fileID: 4675652423626611265}
   - component: {fileID: 4147477552520543691}
   - component: {fileID: 2330894768531253621}
+  - component: {fileID: 7433954569969148146}
+  - component: {fileID: 4047567920447126364}
   m_Layer: 8
   m_Name: Mirror
   m_TagString: Untagged
@@ -168,6 +170,39 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.76, y: 7.77, z: 1.75}
   m_Center: {x: 0, y: 3.96, z: 0}
+--- !u!65 &7433954569969148146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2880824253376135812}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.43, y: 15.21, z: 1}
+  m_Center: {x: 0, y: 7.36, z: 0}
+--- !u!114 &4047567920447126364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2880824253376135812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f815b51aeec4004aa3e9de693029cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Prop.Mirror
 --- !u!1 &3627601976159213648
 GameObject:
   m_ObjectHideFlags: 0
