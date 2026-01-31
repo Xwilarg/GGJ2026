@@ -106,11 +106,11 @@ namespace GGJ2026.Player
                 _spritesHolder.transform.localScale = spritesScale;
             }
 
-            if (_yJumpForce > 0f)
+            /*if (_yJumpForce > 0f)
             {
                 _yJumpForce -= Time.deltaTime * _info.SimulatedGravityForce;
                 _rb.AddForce(Vector3.up * _yJumpForce);
-            }
+            }*/
         }
 
         private void FixedUpdate()
@@ -164,8 +164,9 @@ namespace GGJ2026.Player
             if (value.phase == InputActionPhase.Started && CanJump)
             {
                 _canJump = false;
-                _rb.linearVelocity = new(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
-                _yJumpForce = _info.JumpForce;
+                _rb.AddForce(Vector3.up * _info.JumpForce, ForceMode.Impulse);
+                //_rb.linearVelocity = new(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
+                //_yJumpForce = _info.JumpForce;
                 StartCoroutine(RefreshJump());
 
                 _isMidAirAfterJump = true;
