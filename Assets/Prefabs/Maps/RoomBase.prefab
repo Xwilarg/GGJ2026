@@ -198,6 +198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Map.RuntimeRoom
   _presets:
   - {fileID: 8700111468962514327}
+  - {fileID: 4352209196421908649}
+  - {fileID: 4756468033583205054}
   _leftMirror: {fileID: 5267618836704269478}
   _rightMirror: {fileID: 6848773458344443801}
 --- !u!1 &4352209196421908649
