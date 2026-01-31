@@ -4994,6 +4994,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1662031905}
+  - {fileID: 1392144918}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &992994037
@@ -5357,9 +5358,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: c0eb0b2f796bf6443a282a82e27e057f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: c0eb0b2f796bf6443a282a82e27e057f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c0eb0b2f796bf6443a282a82e27e057f, type: 3}
       propertyPath: m_Name
       value: Placeholder
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: c0eb0b2f796bf6443a282a82e27e057f, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -2,6 +2,7 @@
 {
     public enum MaskType
     {
-        DefaultMask
+        Joy,
+        Sadness
     }
 }

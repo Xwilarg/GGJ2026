@@ -34,12 +34,13 @@ namespace GGJ2026.Level
             _coll.enabled = value;
         }
 
+        private Color[] _colors = new[] { Color.red, Color.green, Color.blue };
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.white;
-            if (_coll is BoxCollider bColl)
+            Gizmos.color = _colors[(int)_maskType];
+            if (GetComponent<Collider>() is BoxCollider bColl)
             {
-                Gizmos.DrawWireCube(transform.position, bColl.size);
+                Gizmos.DrawWireCube(transform.position + bColl.center, new Vector3(bColl.size.x * transform.localScale.x, bColl.size.y * transform.localScale.y, bColl.size.z * transform.localScale.z));
             }
             else Debug.LogWarning($"Unknown collider debug for {name}");
         }
