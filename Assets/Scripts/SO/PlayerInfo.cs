@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GGJ2026.Player;
+using UnityEngine;
 
 namespace GGJ2026.SO
 {
@@ -9,5 +10,14 @@ namespace GGJ2026.SO
         public float JumpForce;
         public float MinDistanceWithFloorForJump;
         public float SimulatedGravityForce;
+
+        public MaskInfo[] Masks;
+    }
+
+    [System.Serializable]
+    public class MaskInfo
+    {
+        public MaskType Type;
+        public Sprite Sprite;
     }
 }
