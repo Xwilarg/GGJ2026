@@ -1,5 +1,6 @@
 ﻿using GGJ2026.Map;
 using GGJ2026.SO;
+using Sketch.Translation;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,6 +49,16 @@ namespace GGJ2026.Manager
 
             foreach (var r in _rooms)
             {
+                if (r.LeftDoor != null)
+                {
+                    var req = GameManager.Instance.GetMask(r.LeftDoor.Requirement);
+                    r.RR.LeftMirror.AssociatedLine = Translate.Instance.Tr("see_intro", Translate.Instance.Tr($"{req.BaseLine}_{Random.Range(1, req.LineCount + 1)}"));
+                }
+                if (r.RightDoor != null)
+                {
+                    var req = GameManager.Instance.GetMask(r.RightDoor.Requirement);
+                    r.RR.RightMirror.AssociatedLine = Translate.Instance.Tr("see_intro", Translate.Instance.Tr($"{req.BaseLine}_{Random.Range(1, req.LineCount + 1)}"));
+                }
             }
         }
 
