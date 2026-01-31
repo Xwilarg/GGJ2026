@@ -255,6 +255,7 @@ MonoBehaviour:
   - {fileID: 8700111468962514327}
   - {fileID: 4352209196421908649}
   - {fileID: 4756468033583205054}
+  _presetStar: {fileID: 5110210969227650954}
   _leftMirror: {fileID: 5267618836704269478}
   _rightMirror: {fileID: 6848773458344443801}
   _wallLeft: {fileID: 55107202521190420}
