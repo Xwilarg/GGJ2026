@@ -5509,12 +5509,12 @@ MonoBehaviour:
     LineCount: 1
   - Type: 1
     Sprite: {fileID: 21300000, guid: 15edf2a2686dcbc459068ffb43f419c3, type: 3}
-    BaseLine: 
-    LineCount: 0
+    BaseLine: sorrow
+    LineCount: 1
   - Type: 2
     Sprite: {fileID: 21300000, guid: 755e45f4fa53eb945ab0070673e4918e, type: 3}
-    BaseLine: 
-    LineCount: 0
+    BaseLine: sorrow
+    LineCount: 1
 --- !u!114 &744509447
 MonoBehaviour:
   m_ObjectHideFlags: 0
