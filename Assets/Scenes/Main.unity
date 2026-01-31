@@ -457,8 +457,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '{press_to_interact}'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 87750e678e1a91d41ac7e2a78f27b7f6, type: 2}
+  m_sharedMaterial: {fileID: -6494242764176426013, guid: 87750e678e1a91d41ac7e2a78f27b7f6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5781,8 +5781,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You see a field of flowers
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 87750e678e1a91d41ac7e2a78f27b7f6, type: 2}
+  m_sharedMaterial: {fileID: -6494242764176426013, guid: 87750e678e1a91d41ac7e2a78f27b7f6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
