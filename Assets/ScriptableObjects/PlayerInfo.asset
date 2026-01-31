@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerInfo
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.SO.PlayerInfo
   MovementSpeed: 20
-  JumpForce: 200
+  JumpForce: 300
   MinDistanceWithFloorForJump: 4.5
   SimulatedGravityForce: 300
   FootstepInterval: 0.2
