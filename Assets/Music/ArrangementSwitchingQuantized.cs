@@ -17,14 +17,18 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
     public AudioSource[] solosB;
     public AudioSource[] arrangementC;
     public AudioSource[] solosC;
+    public AudioSource[] arrangementD;
+    public AudioSource[] solosD;
     public AudioClip sourceClip;
     public AudioMixer MainMixer;
     private string ArrangementAGroupVolume = "ArrangementAGroupVolume";
     private string ArrangementBGroupVolume = "ArrangementBGroupVolume";
     private string ArrangementCGroupVolume = "ArrangementCGroupVolume";
+    private string ArrangementDGroupVolume = "ArrangementDGroupVolume";
     public float arrangementAVolume;
     public float arrangementBVolume;
     public float arrangementCVolume;
+    public float arrangementDVolume;
     private int toggle = 0;
     private int activeMask = 1;
 
@@ -59,25 +63,39 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
 
         clipDuration = (double)sourceClip.samples / sourceClip.frequency;
         clipDurationInBars = clipDuration / barLength;
-        Debug.Log("Clip Duration in Bars is " + clipDurationInBars);
+        //Debug.Log("Clip Duration in Bars is " + clipDurationInBars);
 
         startTime = AudioSettings.dspTime + 0.5f;
         nextStartTime = startTime + clipDuration;
         for (int i = 0; i < arrangementA.Length / 2; i++)
         {
             arrangementA[i].PlayScheduled(startTime);
-            Debug.Log("Play scheduled for track " + i);
+            //Debug.Log("Play scheduled for track " + i);
         }
         for (int i = 0; i < arrangementB.Length / 2; i++)
         {
             arrangementB[i].PlayScheduled(startTime);
-            Debug.Log("Play scheduled for track " + i);
+            //Debug.Log("Play scheduled for track " + i);
+        }
+        for (int i = 0; i < arrangementC.Length / 2; i++)
+        {
+            arrangementC[i].PlayScheduled(startTime);
+            //Debug.Log("Play scheduled for track " + i);
+        }
+        for (int i = 0; i < arrangementD.Length / 2; i++)
+        {
+            arrangementD[i].PlayScheduled(startTime);
+            //Debug.Log("Play scheduled for track " + i);
         }
 
         arrangementAVolume = 1;
         arrangementBVolume = 0;
+        arrangementCVolume = 0;
+        arrangementDVolume = 0;
         MainMixer.SetFloat(ArrangementAGroupVolume, 0.0f);
         MainMixer.SetFloat(ArrangementBGroupVolume, -80.0f);
+        MainMixer.SetFloat(ArrangementCGroupVolume, -80.0f);
+        MainMixer.SetFloat(ArrangementDGroupVolume, -80.0f);
         toggle = 1 - toggle;
     }
 
@@ -128,13 +146,23 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                     for (int i = 0; i < arrangementA.Length / 2; i++)
                     {
                         arrangementA[i].PlayScheduled(nextStartTime);
-                        Debug.Log("Play scheduled for track " + i);
+                        //Debug.Log("Play scheduled for track " + i);
                     }
                     //schedule additional layers and set volume
                     for (int i = 0; i < arrangementB.Length / 2; i++)
                     {
                         arrangementB[i].PlayScheduled(nextStartTime);
-                        Debug.Log("Play scheduled for track " + i);
+                        //Debug.Log("Play scheduled for track " + i);
+                    }
+                    for (int i = 0; i < arrangementC.Length / 2; i++)
+                    {
+                        arrangementC[i].PlayScheduled(nextStartTime);
+                        //Debug.Log("Play scheduled for track " + i);
+                    }
+                    for (int i = 0; i < arrangementD.Length / 2; i++)
+                    {
+                        arrangementD[i].PlayScheduled(nextStartTime);
+                        //Debug.Log("Play scheduled for track " + i);
                     }
                     break;
                 case 1:
@@ -142,13 +170,23 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                     for (int i = arrangementA.Length / 2; i < arrangementA.Length; i++)
                     {
                         arrangementA[i].PlayScheduled(nextStartTime);
-                        Debug.Log("Play scheduled for track " + i);
+                        //Debug.Log("Play scheduled for track " + i);
                     }
                     //schedule additional layers and set volume
                     for (int i = arrangementB.Length / 2; i < arrangementB.Length; i++)
                     {
                         arrangementB[i].PlayScheduled(nextStartTime);
-                        Debug.Log("Play scheduled for track " + i);
+                        //Debug.Log("Play scheduled for track " + i);
+                    }
+                    for (int i = arrangementC.Length / 2; i < arrangementC.Length; i++)
+                    {
+                        arrangementC[i].PlayScheduled(nextStartTime);
+                        //Debug.Log("Play scheduled for track " + i);
+                    }
+                    for (int i = arrangementD.Length / 2; i < arrangementD.Length; i++)
+                    {
+                        arrangementD[i].PlayScheduled(nextStartTime);
+                        //Debug.Log("Play scheduled for track " + i);
                     }
                     break;
             }
@@ -193,6 +231,18 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                             }
                         }
                         solosC[selectedSoloC].PlayScheduled(nextStartTime);
+                        break;
+                    case 4:
+                        int selectedSoloD = UnityEngine.Random.Range(0, solosD.Length);
+                        if (solosC[selectedSoloD].isPlaying)
+                        {
+                            int forbiddenValue = selectedSoloD;
+                            while (forbiddenValue == selectedSoloD)
+                            {
+                                selectedSoloD = UnityEngine.Random.Range(0, solosD.Length);
+                            }
+                        }
+                        solosD[selectedSoloD].PlayScheduled(nextStartTime);
                         break;
                     default: //in the case where input falls outside the expected range, do nothing
                         break;
@@ -258,6 +308,7 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                 arrangementAVolume = 1;
                 arrangementBVolume = 0;
                 arrangementCVolume = 0;
+                arrangementDVolume = 0;
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementAGroupVolume, 1.0f, arrangementAVolume, (float)timeToNextBeat));
                 if (arrangementBVolume > 0)
                 {
@@ -267,11 +318,16 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
                 }
+                if (arrangementDVolume > 0)
+                {
+                    StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
+                }
                 break;
             case 2:
                 arrangementAVolume = 0;
                 arrangementBVolume = 1;
                 arrangementCVolume = 0;
+                arrangementDVolume = 0;
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
                 if (arrangementAVolume > 0)
                 {
@@ -281,11 +337,16 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
                 }
+                if (arrangementDVolume > 0)
+                {
+                    StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
+                }
                 break;
             case 3:
                 arrangementAVolume = 0;
                 arrangementBVolume = 0;
                 arrangementCVolume = 1;
+                arrangementDVolume = 0;
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
                 if (arrangementAVolume > 0)
                 {
@@ -294,6 +355,29 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                 if (arrangementBVolume > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
+                }
+                if (arrangementDVolume > 0)
+                {
+                    StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
+                }
+                break;
+            case 4:
+                arrangementAVolume = 0;
+                arrangementBVolume = 0;
+                arrangementCVolume = 0;
+                arrangementDVolume = 1;
+                StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
+                if (arrangementAVolume > 0)
+                {
+                    StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementAGroupVolume, 1.0f, arrangementAVolume, (float)timeToNextBeat));
+                }
+                if (arrangementBVolume > 0)
+                {
+                    StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
+                }
+                if (arrangementCVolume > 0)
+                {
+                    StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
                 }
                 break;
             default: //use case 1 as default case

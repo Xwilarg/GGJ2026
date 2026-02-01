@@ -28,6 +28,39 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-8760626050253153512
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: afd9d577bc2a31142ae2de5a33ae6925
+  m_EffectName: Attenuation
+  m_MixLevel: 6c5a51b8cbb6e954d938c6185c22b1b7
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &-7228854384726780782
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MusicD
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 922a15d2f112372489cdb0f21ff4dc40
+  m_Children: []
+  m_Volume: dbccd20418eae7640a06eb2b0be9e592
+  m_Pitch: 850f93f1b7da4214e83473ac2456ed2c
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -8760626050253153512}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &-6780684454060535826
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -196,6 +229,8 @@ AudioMixerController:
     name: ArrangementBGroupVolume
   - guid: 5c1922b3b6a5f99418d1597624d722bb
     name: ArrangementCGroupVolume
+  - guid: dbccd20418eae7640a06eb2b0be9e592
+    name: ArrangementDGroupVolume
   m_AudioMixerGroupViews:
   - guids:
     - 7b5e8bb3a29c1694ba936b4dfefbf7ce
@@ -208,6 +243,7 @@ AudioMixerController:
     - 81330b2e2d5bd594a85d6676fdae6014
     - 05ae5335f0142494a8dd19cf1c310f28
     - e82794ddfff15204fb2e7ed1f483b959
+    - 922a15d2f112372489cdb0f21ff4dc40
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -230,6 +266,7 @@ AudioMixerGroupController:
   - {fileID: 1088742385985898511}
   - {fileID: -1371763651484868327}
   - {fileID: 7862919327644237200}
+  - {fileID: -7228854384726780782}
   m_Volume: 4dacb23d8053da14fab29dc5b81c96f0
   m_Pitch: 65ca09fb504df644dbcb336d6552d09a
   m_Send: 00000000000000000000000000000000
