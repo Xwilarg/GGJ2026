@@ -21,7 +21,7 @@
   "switch_blank": "You feel emotions leaving you",
 
   "joy_1": "an orchard full of juicy fruits",
-  "joy_2": "a fire warming a house from a chimney",
+  "joy_2": "a chimney warming a house in a busy living room",
   "joy_3": "a buffet full of meats and vegetables",
   "joy_4": "a christmas tree under which are countless presents",
   "joy_5": "a kid in front of a birthday cake",
@@ -33,8 +33,10 @@
   "sorrow_5": "a dead basil sterm at it was never pruned from bad herb",
 
   "wrath_1": "a battlefield, soldiers fighting afar",
-  "wrath_2": "a young man holding a knife, watching a corronation from afar",
+  "wrath_2": "a young man holding a knife, watching a coronation from afar",
   "wrath_3": "a man spreading gasoline on a blood-covered wooden floor",
+  "wrath_4": "a lion protecting his cub against a group of hyenas",
+  "wrath_5": "a man being sentenced from his crimes by a judge hiding a smirk",
 
   "ending_joy_1": "We can see the fullfilment on your mask, how proud you say you are of your deeds and the fond memories you share",
   "ending_joy_2": "And joy was made to be shared, to spread it for those around you",
