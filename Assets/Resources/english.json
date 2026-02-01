@@ -15,9 +15,14 @@
   "memory_bad": "The memory fizzle out until it becomes a blurry mess",
   "memory_good": "The memory fades in front of you, showing a passage",
 
+  "switch_joy": "You feel hapiness rises inside you",
+  "switch_sorrow": "You feel sadness rises inside you",
+  "switch_wrath": "You feel anger rises inside you",
+  "switch_blank": "You feel emotions leaving you",
+
   "joy_1": "an orchard full of juicy fruits",
   "joy_2": "a fire warming a house from a chimney",
-  "joy_3": "a buffet full of full of meats and vegetables",
+  "joy_3": "a buffet full of meats and vegetables",
   "joy_4": "a christmas tree under which are countless presents",
   "joy_5": "a kid in front of a birthday cake",
 

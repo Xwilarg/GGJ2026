@@ -5663,6 +5663,7 @@ MonoBehaviour:
   _masks:
   - Type: 0
     Sprite: {fileID: 21300000, guid: e9655ccb8c310e24eb4e94e070fd5436, type: 3}
+    SwitchLine: switch_joy
     BaseLine: joy
     LineCount: 5
     SFX: {fileID: 8300000, guid: 57ec69cb2170aa34a844d1e6b8036e3e, type: 3}
@@ -5672,6 +5673,7 @@ MonoBehaviour:
     EndingLineCount: 0
   - Type: 1
     Sprite: {fileID: 21300000, guid: 15edf2a2686dcbc459068ffb43f419c3, type: 3}
+    SwitchLine: switch_sorrow
     BaseLine: sorrow
     LineCount: 4
     SFX: {fileID: 8300000, guid: 1bee865b6ca05ac408104e57d5c03153, type: 3}
@@ -5681,6 +5683,7 @@ MonoBehaviour:
     EndingLineCount: 0
   - Type: 2
     Sprite: {fileID: 21300000, guid: 755e45f4fa53eb945ab0070673e4918e, type: 3}
+    SwitchLine: switch_wrath
     BaseLine: wrath
     LineCount: 3
     SFX: {fileID: 8300000, guid: f2888fca01abcb7499dba2adec4c030d, type: 3}
@@ -5690,6 +5693,7 @@ MonoBehaviour:
     EndingLineCount: 7
   - Type: 3
     Sprite: {fileID: 0}
+    SwitchLine: switch_blank
     BaseLine: 
     LineCount: 0
     SFX: {fileID: 8300000, guid: c3b2317092edd2044823603e33333064, type: 3}
