@@ -1,6 +1,8 @@
 ﻿using GGJ2026.UserInterface;
+using Sketch.Translation;
 using Sketch.VN;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace GGJ2026.Manager
@@ -27,12 +29,43 @@ namespace GGJ2026.Manager
         [SerializeField]
         private Image _endingCG;
 
+        private int _vnIndex = 1;
+
+        public bool IsInEnding { private set; get; }
+
         private void Awake()
         {
             Instance = this;
 
             _descriptionText.ToDisplay = string.Empty;
             _endingContainer.SetActive(false);
+        }
+
+        public void ShowStory()
+        {
+            var mask = GameManager.Instance.GetMask(MaskManager.Instance.CurrentMask);
+
+            _endingContainer.SetActive(true);
+            _endingCG.gameObject.SetActive(true);
+            _endingCG.sprite = mask.EndingCG;
+            _endingDisplay.ToDisplay = Translate.Instance.Tr($"{mask.EndingLine}_1");
+
+            IsInEnding = true;
+        }
+
+        public void ShowNextDialogue()
+        {
+            if (_endingDisplay.IsDisplayDone)
+            {
+                _vnIndex++;
+                var mask = GameManager.Instance.GetMask(MaskManager.Instance.CurrentMask);
+                if (_vnIndex == mask.EndingLineCount + 1) SceneManager.LoadScene("Menu");
+                else _endingDisplay.ToDisplay = Translate.Instance.Tr($"{mask.EndingLine}_{_vnIndex}");
+            }
+            else
+            {
+                _endingDisplay.ForceDisplay();
+            }
         }
 
         public Button AddButton(Sprite sprite, int count)

@@ -68,7 +68,7 @@ namespace GGJ2026.Player
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent<IInteractible>(out var interaction) && interaction.Key == _currentInteraction.Key)
+            if (other.TryGetComponent<IInteractible>(out var interaction) && _currentInteraction != null && interaction.Key == _currentInteraction.Key)
             {
                 _currentInteraction.CancelInteraction(this);
                 _currentInteraction = null;
@@ -137,7 +137,7 @@ namespace GGJ2026.Player
 
         private void FixedUpdate()
         {
-            Vector3 mov = _cam.transform.forward * _rawMov.y + _cam.transform.right * _rawMov.x;
+            Vector3 mov = UIManager.Instance.IsInEnding ? Vector3.zero : (_cam.transform.forward * _rawMov.y + _cam.transform.right * _rawMov.x);
             mov.y = 0f;
 
             if (_isMidAirAfterJump && IsOnFloor)
@@ -170,7 +170,7 @@ namespace GGJ2026.Player
 
         private void OnMaskSelect(InputAction.CallbackContext value, int key)
         {
-            if (value.phase == InputActionPhase.Started)
+            if (value.phase == InputActionPhase.Started && !UIManager.Instance.IsInEnding)
             {
                 MaskManager.Instance.TryGetMask(key - 1)?.onClick?.Invoke();
             }
@@ -183,7 +183,7 @@ namespace GGJ2026.Player
 
         public void OnJump(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started && CanJump)
+            if (value.phase == InputActionPhase.Started && CanJump && !UIManager.Instance.IsInEnding)
             {
                 _canJump = false;
                 _rb.AddForce(Vector3.up * _info.JumpForce, ForceMode.Impulse);
@@ -199,10 +199,17 @@ namespace GGJ2026.Player
 
         public void OnInteract(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started && _currentInteraction != null)
+            if (value.phase == InputActionPhase.Started)
             {
-                _currentInteraction.Interact(this);
-                _interactionText.gameObject.SetActive(false);
+                if (UIManager.Instance.IsInEnding)
+                {
+                    UIManager.Instance.ShowNextDialogue();
+                }
+                else if (_currentInteraction != null)
+                {
+                    _currentInteraction.Interact(this);
+                    _interactionText.gameObject.SetActive(false);
+                }
             }
         }
 

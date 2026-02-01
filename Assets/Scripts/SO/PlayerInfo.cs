@@ -27,6 +27,7 @@ namespace GGJ2026.SO
         public AudioClip SFX;
         public string AnimationName;
 
+        public Sprite EndingCG;
         public string EndingLine;
         public int EndingLineCount;
     }

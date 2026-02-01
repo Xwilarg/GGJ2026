@@ -5667,6 +5667,7 @@ MonoBehaviour:
     LineCount: 5
     SFX: {fileID: 8300000, guid: 57ec69cb2170aa34a844d1e6b8036e3e, type: 3}
     AnimationName: Joy
+    EndingCG: {fileID: 21300000, guid: 0ff3864e4e076a440b462033bed6dc8e, type: 3}
     EndingLine: 
     EndingLineCount: 0
   - Type: 1
@@ -5675,6 +5676,7 @@ MonoBehaviour:
     LineCount: 4
     SFX: {fileID: 8300000, guid: 1bee865b6ca05ac408104e57d5c03153, type: 3}
     AnimationName: Sorrow
+    EndingCG: {fileID: 21300000, guid: 98d5927e78b61414aa0063ffb3393a69, type: 3}
     EndingLine: 
     EndingLineCount: 0
   - Type: 2
@@ -5683,6 +5685,7 @@ MonoBehaviour:
     LineCount: 3
     SFX: {fileID: 8300000, guid: f2888fca01abcb7499dba2adec4c030d, type: 3}
     AnimationName: Wrath
+    EndingCG: {fileID: 21300000, guid: 83fb5716161211543a721b7d2ec8388d, type: 3}
     EndingLine: ending_wrath
     EndingLineCount: 7
 --- !u!114 &744509447

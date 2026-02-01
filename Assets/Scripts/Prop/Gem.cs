@@ -1,4 +1,5 @@
-﻿using GGJ2026.Player;
+﻿using GGJ2026.Manager;
+using GGJ2026.Player;
 using UnityEngine;
 
 namespace GGJ2026.Prop
@@ -18,6 +19,7 @@ namespace GGJ2026.Prop
 
         public void Interact(CustomPlayerController player)
         {
+            UIManager.Instance.ShowStory();
         }
 
         public void Prepare(CustomPlayerController player)
