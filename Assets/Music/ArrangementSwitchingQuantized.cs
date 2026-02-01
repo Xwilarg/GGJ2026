@@ -326,11 +326,11 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
                 }
-                if (volumeCheckC > 0)
+                if (volumeCheckC > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
                 }
-                if (volumeCheckD > 0)
+                if (volumeCheckD > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
                 }
@@ -341,15 +341,15 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                 arrangementCVolume = 0;
                 arrangementDVolume = 0;
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
-                if (volumeCheckA > 0)
+                if (volumeCheckA > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementAGroupVolume, 1.0f, arrangementAVolume, (float)timeToNextBeat));
                 }
-                if (volumeCheckC > 0)
+                if (volumeCheckC > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
                 }
-                if (volumeCheckD > 0)
+                if (volumeCheckD > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
                 }
@@ -360,15 +360,15 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                 arrangementCVolume = 1;
                 arrangementDVolume = 0;
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
-                if (volumeCheckA > 0)
+                if (volumeCheckA > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementAGroupVolume, 1.0f, arrangementAVolume, (float)timeToNextBeat));
                 }
-                if (volumeCheckB > 0)
+                if (volumeCheckB > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
                 }
-                if (volumeCheckD > 0)
+                if (volumeCheckD > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
                 }
@@ -379,15 +379,15 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                 arrangementCVolume = 0;
                 arrangementDVolume = 1;
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
-                if (volumeCheckA > 0)
+                if (volumeCheckA > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementAGroupVolume, 1.0f, arrangementAVolume, (float)timeToNextBeat));
                 }
-                if (volumeCheckB > 0)
+                if (volumeCheckB > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
                 }
-                if (volumeCheckC > 0)
+                if (volumeCheckC > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
                 }
@@ -402,11 +402,11 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
                 }
-                if (volumeCheckC > 0)
+                if (volumeCheckC > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
                 }
-                if (volumeCheckD > 0)
+                if (volumeCheckD > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
                 }
