@@ -97,6 +97,9 @@ namespace GGJ2026.Player
             {
                 _maskSwitchTimer = 0f;
                 _animMask.Play("Switch");
+
+                // TODO: Display switch helper here
+                // UIManager.Instance.Sho Translate.Instance.Tr(GameManager.Instance.GetMask(value).SwitchLine);
             });
         }
 
