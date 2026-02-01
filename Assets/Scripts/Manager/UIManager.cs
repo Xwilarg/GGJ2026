@@ -18,11 +18,21 @@ namespace GGJ2026.Manager
         [SerializeField]
         private TextDisplay _descriptionText;
 
+        [SerializeField]
+        private GameObject _endingContainer;
+
+        [SerializeField]
+        private TextDisplay _endingDisplay;
+
+        [SerializeField]
+        private Image _endingCG;
+
         private void Awake()
         {
             Instance = this;
 
             _descriptionText.ToDisplay = string.Empty;
+            _endingContainer.SetActive(false);
         }
 
         public Button AddButton(Sprite sprite, int count)

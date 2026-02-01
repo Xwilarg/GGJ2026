@@ -5625,7 +5625,6 @@ GameObject:
   - component: {fileID: 744509448}
   - component: {fileID: 744509449}
   - component: {fileID: 744509450}
-  - component: {fileID: 744509451}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5668,21 +5667,24 @@ MonoBehaviour:
     LineCount: 5
     SFX: {fileID: 8300000, guid: 57ec69cb2170aa34a844d1e6b8036e3e, type: 3}
     AnimationName: Joy
-    EndingStory: {fileID: 0}
+    EndingLine: 
+    EndingLineCount: 0
   - Type: 1
     Sprite: {fileID: 21300000, guid: 15edf2a2686dcbc459068ffb43f419c3, type: 3}
     BaseLine: sorrow
     LineCount: 4
     SFX: {fileID: 8300000, guid: 1bee865b6ca05ac408104e57d5c03153, type: 3}
     AnimationName: Sorrow
-    EndingStory: {fileID: 0}
+    EndingLine: 
+    EndingLineCount: 0
   - Type: 2
     Sprite: {fileID: 21300000, guid: 755e45f4fa53eb945ab0070673e4918e, type: 3}
     BaseLine: wrath
     LineCount: 3
     SFX: {fileID: 8300000, guid: f2888fca01abcb7499dba2adec4c030d, type: 3}
     AnimationName: Wrath
-    EndingStory: {fileID: 0}
+    EndingLine: ending_wrath
+    EndingLineCount: 7
 --- !u!114 &744509447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5711,6 +5713,9 @@ MonoBehaviour:
   _maskBtnContainer: {fileID: 606876642}
   _maskBtnPrefab: {fileID: 5116117169365326868, guid: 5d524f3174b3226478210ac85b91e782, type: 3}
   _descriptionText: {fileID: 1424980481}
+  _endingContainer: {fileID: 243688049}
+  _endingDisplay: {fileID: 1915166963}
+  _endingCG: {fileID: 1830236678}
 --- !u!114 &744509449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5737,29 +5742,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GGJ2026.Manager.MapManager
   _roomPrefab: {fileID: 3439335315714720851, guid: a6642c69a31cfbb4682d95d3f8b29712, type: 3}
   _genInfo: {fileID: 11400000, guid: ee852564dcbfa574ab019f672b72c90a, type: 2}
---- !u!114 &744509451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744509444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbbadfea1aca4c8498346b1bcee15847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: xwilarg.eu.zirk.sketch.visualnovel::Sketch.VN.VNManager
-  _display: {fileID: 1915166963}
-  _characters: []
-  _characterImage: {fileID: 0}
-  _overlays: []
-  _backgroundImage: {fileID: 0}
-  _backgrounds: []
-  _container: {fileID: 243688049}
-  _namePanel: {fileID: 0}
-  _nameText: {fileID: 0}
-  _choiceContainer: {fileID: 0}
-  _choicePrefab: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -6506,10 +6488,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is a sample textThis is a sample textThis is a sample textThis is
-    a sample textThis is a sample textThis is a sample textThis is a sample textThis
-    is a sample textThis is a sample textThis is a sample textThis is a sample textThis
-    is a sample text
+  m_text: Its the idea that comes from the necessity of change. Change for the better,
+    it's the reaction that comes from the inability to process, or let yourself live
+    an experience without fighting back, without feeling it thoroughly...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87750e678e1a91d41ac7e2a78f27b7f6, type: 2}
   m_sharedMaterial: {fileID: -6494242764176426013, guid: 87750e678e1a91d41ac7e2a78f27b7f6, type: 2}
