@@ -125,7 +125,7 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                 if (++accent > signatureHi)
                 {
                     accent = 1;
-                    Debug.Log("Bar " + barCount);
+                    //Debug.Log("Bar " + barCount);
                     barCount++;
                     nextBar = AudioSettings.dspTime + barLength;
                     if (barCount > (int)clipDurationInBars)
@@ -135,7 +135,7 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                         barCount = 1;
                     }
                 }
-                Debug.Log("Tick: " + accent + "/" + signatureHi);
+                //Debug.Log("Tick: " + accent + "/" + signatureHi);
             }
             n++;
         }
