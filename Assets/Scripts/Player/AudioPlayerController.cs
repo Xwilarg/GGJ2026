@@ -7,12 +7,14 @@ namespace GGJ2026.Player
     {
         [SerializeField]
         private AudioSource _bgm;
+        public ArrangementSwitchingQuantized MusicManager;
 
         private void Start()
         {
             MaskManager.Instance.OnMaskChange.AddListener((newMaskValue) =>
             {
                 // Do mask things here :D
+                MusicManager.SetMusicArrangementByMask(newMaskValue);
             });
         }
 
