@@ -1,6 +1,7 @@
 using GGJ2026.Manager;
 using GGJ2026.Prop;
 using GGJ2026.SO;
+using Sketch.Translation;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -98,8 +99,7 @@ namespace GGJ2026.Player
                 _maskSwitchTimer = 0f;
                 _animMask.Play("Switch");
 
-                // TODO: Display switch helper here
-                // UIManager.Instance.Sho Translate.Instance.Tr(GameManager.Instance.GetMask(value).SwitchLine);
+                UIManager.Instance.SetDescriptionText(Translate.Instance.Tr(GameManager.Instance.GetMask(mask).SwitchLine), true);
             });
         }
 

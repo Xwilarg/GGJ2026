@@ -33,12 +33,26 @@ namespace GGJ2026.Manager
 
         public bool IsInEnding { private set; get; }
 
+        private float _timer = -1f;
+
         private void Awake()
         {
             Instance = this;
 
             _descriptionText.ToDisplay = string.Empty;
             _endingContainer.SetActive(false);
+        }
+
+        private void Update()
+        {
+            if (_timer > 0f)
+            {
+                _timer -= Time.deltaTime;
+                if (_timer <= 0f)
+                {
+                    _descriptionText.ToDisplay = string.Empty;
+                }
+            }
         }
 
         public void ShowStory()
@@ -75,9 +89,18 @@ namespace GGJ2026.Manager
             return btn.GetComponent<Button>();
         }
 
-        public void SetDescriptionText(string text)
+        public void SetDescriptionText(string text, bool setTimer = false)
         {
             _descriptionText.ToDisplay = text;
+
+            if (setTimer)
+            {
+                _timer = 2f;
+            }
+            else
+            {
+                _timer = -1f;
+            }
         }
     }
 }
