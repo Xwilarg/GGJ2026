@@ -379,11 +379,15 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                 arrangementCVolume = 0;
                 arrangementDVolume = 1;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
 =======
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
 >>>>>>> ae8125f9f5582a5e1a81d8d380a00f062b856239
+=======
+                StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
+>>>>>>> Stashed changes
 =======
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
 >>>>>>> Stashed changes
