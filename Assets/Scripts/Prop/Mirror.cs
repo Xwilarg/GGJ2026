@@ -14,6 +14,9 @@ namespace GGJ2026.Prop
         [SerializeField]
         private AudioClip[] _endClips;
 
+        [SerializeField]
+        private GameObject _glow;
+
         public string AssociatedLine { set; get; }
         private MaskType _mask;
         private Collider _coll;
@@ -49,6 +52,7 @@ namespace GGJ2026.Prop
                 _coll.enabled = false;
                 UIManager.Instance.SetDescriptionText(Translate.Instance.Tr("memory_good"));
                 _end.PlayOneShot(_endClips[Random.Range(0, _endClips.Length)]);
+                _glow.SetActive(true);
             }
             else
             {
