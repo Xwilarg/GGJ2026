@@ -1,3 +1,5 @@
+using GGJ2026.Manager;
+using GGJ2026.Player;
 using System;
 using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
@@ -29,8 +31,13 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
     public float arrangementBVolume;
     public float arrangementCVolume;
     public float arrangementDVolume;
+    private float volumeCheckA;
+    private float volumeCheckB;
+    private float volumeCheckC;
+    private float volumeCheckD;
     private int toggle = 0;
-    private int activeMask = 1;
+    public MaskManager maskManager;
+    //private MaskType activeMask;
 
     private double nextTick = 0.0F;
     private double sampleRate = 0.0F;
@@ -88,12 +95,12 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
             //Debug.Log("Play scheduled for track " + i);
         }
 
-        arrangementAVolume = 1;
-        arrangementBVolume = 0;
+        arrangementAVolume = 0;
+        arrangementBVolume = 1;
         arrangementCVolume = 0;
         arrangementDVolume = 0;
-        MainMixer.SetFloat(ArrangementAGroupVolume, 0.0f);
-        MainMixer.SetFloat(ArrangementBGroupVolume, -80.0f);
+        MainMixer.SetFloat(ArrangementAGroupVolume, -80.0f);
+        MainMixer.SetFloat(ArrangementBGroupVolume, 0.0f);
         MainMixer.SetFloat(ArrangementCGroupVolume, -80.0f);
         MainMixer.SetFloat(ArrangementDGroupVolume, -80.0f);
         toggle = 1 - toggle;
@@ -194,9 +201,9 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
             float soloChance = UnityEngine.Random.Range(0.0f, 1.0f);
             if (soloChance < 0.4f)
             {
-                switch (activeMask)
+                switch (maskManager.CurrentMask)
                 {
-                    case 1:
+                    case MaskType.None:
                         int selectedSoloA = UnityEngine.Random.Range(0, solosA.Length);
                         if (solosA[selectedSoloA].isPlaying)
                         {
@@ -208,7 +215,7 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                         }
                         solosA[selectedSoloA].PlayScheduled(nextStartTime);
                         break;
-                    case 2:
+                    case MaskType.Joy:
                         int selectedSoloB = UnityEngine.Random.Range(0, solosB.Length);
                         if (solosB[selectedSoloB].isPlaying)
                         {
@@ -220,7 +227,7 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                         }
                         solosB[selectedSoloB].PlayScheduled(nextStartTime);
                         break;
-                    case 3:
+                    case MaskType.Sorrow:
                         int selectedSoloC = UnityEngine.Random.Range(0, solosC.Length);
                         if (solosC[selectedSoloC].isPlaying)
                         {
@@ -232,7 +239,7 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
                         }
                         solosC[selectedSoloC].PlayScheduled(nextStartTime);
                         break;
-                    case 4:
+                    case MaskType.Wrath:
                         int selectedSoloD = UnityEngine.Random.Range(0, solosD.Length);
                         if (solosC[selectedSoloD].isPlaying)
                         {
@@ -298,100 +305,110 @@ public class ArrangementSwitchingQuantized : MonoBehaviour
         */
     }
 
-    private void setMusicArrangementbyMask(int maskNumber)
+    public void SetMusicArrangementByMask(MaskType inputMask)
     {
         timeToNextBeat = nextBeat - AudioSettings.dspTime;
 
-        switch (maskNumber)
+        MainMixer.GetFloat(ArrangementAGroupVolume, out volumeCheckA);
+        MainMixer.GetFloat(ArrangementBGroupVolume, out volumeCheckB);
+        MainMixer.GetFloat(ArrangementCGroupVolume, out volumeCheckC);
+        MainMixer.GetFloat(ArrangementDGroupVolume, out volumeCheckD);
+
+        switch (inputMask)
         {
-            case 1:
+            case MaskType.None:
                 arrangementAVolume = 1;
                 arrangementBVolume = 0;
                 arrangementCVolume = 0;
                 arrangementDVolume = 0;
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementAGroupVolume, 1.0f, arrangementAVolume, (float)timeToNextBeat));
-                if (arrangementBVolume > 0)
+                if (volumeCheckB > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
                 }
-                if (arrangementCVolume > 0)
+                if (volumeCheckC > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
                 }
-                if (arrangementDVolume > 0)
+                if (volumeCheckD > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
                 }
                 break;
-            case 2:
+            case MaskType.Joy:
                 arrangementAVolume = 0;
                 arrangementBVolume = 1;
                 arrangementCVolume = 0;
                 arrangementDVolume = 0;
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
-                if (arrangementAVolume > 0)
+                if (volumeCheckA > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementAGroupVolume, 1.0f, arrangementAVolume, (float)timeToNextBeat));
                 }
-                if (arrangementCVolume > 0)
+                if (volumeCheckC > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
                 }
-                if (arrangementDVolume > 0)
+                if (volumeCheckD > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
                 }
                 break;
-            case 3:
+            case MaskType.Sorrow:
                 arrangementAVolume = 0;
                 arrangementBVolume = 0;
                 arrangementCVolume = 1;
                 arrangementDVolume = 0;
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
-                if (arrangementAVolume > 0)
+                if (volumeCheckA > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementAGroupVolume, 1.0f, arrangementAVolume, (float)timeToNextBeat));
                 }
-                if (arrangementBVolume > 0)
+                if (volumeCheckB > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
                 }
-                if (arrangementDVolume > 0)
+                if (volumeCheckD > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
                 }
                 break;
-            case 4:
+            case MaskType.Wrath:
                 arrangementAVolume = 0;
                 arrangementBVolume = 0;
                 arrangementCVolume = 0;
                 arrangementDVolume = 1;
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
-                if (arrangementAVolume > 0)
+                if (volumeCheckA > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementAGroupVolume, 1.0f, arrangementAVolume, (float)timeToNextBeat));
                 }
-                if (arrangementBVolume > 0)
+                if (volumeCheckB > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
                 }
-                if (arrangementCVolume > 0)
+                if (volumeCheckC > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
                 }
                 break;
-            default: //use case 1 as default case
+            default: //use MaskType.None case as default case
                 arrangementAVolume = 1;
                 arrangementBVolume = 0;
                 arrangementCVolume = 0;
+                arrangementDVolume = 0;
                 StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementAGroupVolume, 1.0f, arrangementAVolume, (float)timeToNextBeat));
-                if (arrangementBVolume > 0)
+                if (volumeCheckB > -80.0f)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementBGroupVolume, 1.0f, arrangementBVolume, (float)timeToNextBeat));
                 }
-                if (arrangementCVolume > 0)
+                if (volumeCheckC > 0)
                 {
                     StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementCGroupVolume, 1.0f, arrangementCVolume, (float)timeToNextBeat));
+                }
+                if (volumeCheckD > 0)
+                {
+                    StartCoroutine(FadeMixerGroupQuantized.StartFadeQuantized(MainMixer, ArrangementDGroupVolume, 1.0f, arrangementDVolume, (float)timeToNextBeat));
                 }
                 break;
         }
