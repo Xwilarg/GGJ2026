@@ -83,6 +83,8 @@ namespace GGJ2026.Player
             var masks = GameManager.Instance.GetAllMasks();
             foreach (var mask in masks)
             {
+                if (mask.Sprite == null) continue;
+
                 AddButton(mask, counter);
 
                 counter++;
@@ -104,7 +106,7 @@ namespace GGJ2026.Player
             {
                 MaskManager.Instance.CurrentMask = mask.Type;
             });
-            MaskManager.Instance.AddMask(btn);
+            MaskManager.Instance.AddMask(btn, mask.Type);
         }
 
         private void Update()
@@ -172,7 +174,11 @@ namespace GGJ2026.Player
         {
             if (value.phase == InputActionPhase.Started && !UIManager.Instance.IsInEnding)
             {
-                MaskManager.Instance.TryGetMask(key - 1)?.onClick?.Invoke();
+                var mask = MaskManager.Instance.TryGetMask(key - 1);
+                if (mask == null) return;
+
+                if (mask.MaskType == MaskManager.Instance.CurrentMask) MaskManager.Instance.CurrentMask = MaskType.None;
+                else mask.Button.onClick.Invoke();
             }
         }
 

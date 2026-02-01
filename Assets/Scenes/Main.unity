@@ -5688,6 +5688,15 @@ MonoBehaviour:
     EndingCG: {fileID: 21300000, guid: 83fb5716161211543a721b7d2ec8388d, type: 3}
     EndingLine: ending_wrath
     EndingLineCount: 7
+  - Type: 3
+    Sprite: {fileID: 0}
+    BaseLine: 
+    LineCount: 0
+    SFX: {fileID: 8300000, guid: c3b2317092edd2044823603e33333064, type: 3}
+    AnimationName: Unmasked
+    EndingCG: {fileID: 21300000, guid: 7ba7adfee7936f345b56a3303833e61d, type: 3}
+    EndingLine: ending_blank
+    EndingLineCount: 10
 --- !u!114 &744509447
 MonoBehaviour:
   m_ObjectHideFlags: 0

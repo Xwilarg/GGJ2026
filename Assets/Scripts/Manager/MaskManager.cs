@@ -7,6 +7,12 @@ using UnityEngine.UI;
 
 namespace GGJ2026.Manager
 {
+    public class ButtonMask
+    {
+        public Button Button { set; get; }
+        public MaskType MaskType { set; get; }
+    }
+
     public class MaskManager : MonoBehaviour
     {
         public static MaskManager Instance { private set; get; }
@@ -31,14 +37,14 @@ namespace GGJ2026.Manager
         }
         public UnityEvent<MaskType> OnMaskChange { private set; get; } = new();
 
-        private readonly List<Button> _availableMasks = new();
+        private readonly List<ButtonMask> _availableMasks = new();
 
-        public void AddMask(Button b)
+        public void AddMask(Button b, MaskType mask)
         {
-            _availableMasks.Add(b);
+            _availableMasks.Add(new() { Button = b, MaskType = mask });
         }
 
-        public Button TryGetMask(int index)
+        public ButtonMask TryGetMask(int index)
         {
             if (index >= _availableMasks.Count) return null;
             return _availableMasks[index];
