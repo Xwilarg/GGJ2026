@@ -21,12 +21,16 @@ namespace GGJ2026.SO
         public MaskType Type;
         public Sprite Sprite;
 
+        public string SwitchLine;
+
         public string BaseLine;
         public int LineCount;
 
         public AudioClip SFX;
         public string AnimationName;
 
-        public TextAsset EndingStory;
+        public Sprite EndingCG;
+        public string EndingLine;
+        public int EndingLineCount;
     }
 }

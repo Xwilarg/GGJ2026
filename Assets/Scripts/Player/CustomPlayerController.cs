@@ -1,11 +1,13 @@
 using GGJ2026.Manager;
 using GGJ2026.Prop;
 using GGJ2026.SO;
+using Sketch.Translation;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace GGJ2026.Player
 {
@@ -68,7 +70,7 @@ namespace GGJ2026.Player
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent<IInteractible>(out var interaction) && interaction.Key == _currentInteraction.Key)
+            if (other.TryGetComponent<IInteractible>(out var interaction) && _currentInteraction != null && interaction.Key == _currentInteraction.Key)
             {
                 _currentInteraction.CancelInteraction(this);
                 _currentInteraction = null;
@@ -83,6 +85,8 @@ namespace GGJ2026.Player
             var masks = GameManager.Instance.GetAllMasks();
             foreach (var mask in masks)
             {
+                if (mask.Sprite == null) continue;
+
                 AddButton(mask, counter);
 
                 counter++;
@@ -94,6 +98,8 @@ namespace GGJ2026.Player
             {
                 _maskSwitchTimer = 0f;
                 _animMask.Play("Switch");
+
+                UIManager.Instance.SetDescriptionText(Translate.Instance.Tr(GameManager.Instance.GetMask(mask).SwitchLine), true);
             });
         }
 
@@ -104,7 +110,7 @@ namespace GGJ2026.Player
             {
                 MaskManager.Instance.CurrentMask = mask.Type;
             });
-            MaskManager.Instance.AddMask(btn);
+            MaskManager.Instance.AddMask(btn, mask.Type);
         }
 
         private void Update()
@@ -137,7 +143,7 @@ namespace GGJ2026.Player
 
         private void FixedUpdate()
         {
-            Vector3 mov = _cam.transform.forward * _rawMov.y + _cam.transform.right * _rawMov.x;
+            Vector3 mov = UIManager.Instance.IsInEnding ? Vector3.zero : (_cam.transform.forward * _rawMov.y + _cam.transform.right * _rawMov.x);
             mov.y = 0f;
 
             if (_isMidAirAfterJump && IsOnFloor)
@@ -170,9 +176,13 @@ namespace GGJ2026.Player
 
         private void OnMaskSelect(InputAction.CallbackContext value, int key)
         {
-            if (value.phase == InputActionPhase.Started)
+            if (value.phase == InputActionPhase.Started && !UIManager.Instance.IsInEnding)
             {
-                MaskManager.Instance.TryGetMask(key - 1)?.onClick?.Invoke();
+                var mask = MaskManager.Instance.TryGetMask(key - 1);
+                if (mask == null) return;
+
+                if (mask.MaskType == MaskManager.Instance.CurrentMask) MaskManager.Instance.CurrentMask = MaskType.None;
+                else mask.Button.onClick.Invoke();
             }
         }
 
@@ -183,7 +193,7 @@ namespace GGJ2026.Player
 
         public void OnJump(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started && CanJump)
+            if (value.phase == InputActionPhase.Started && CanJump && !UIManager.Instance.IsInEnding)
             {
                 _canJump = false;
                 _rb.AddForce(Vector3.up * _info.JumpForce, ForceMode.Impulse);
@@ -199,10 +209,17 @@ namespace GGJ2026.Player
 
         public void OnInteract(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started && _currentInteraction != null)
+            if (value.phase == InputActionPhase.Started)
             {
-                _currentInteraction.Interact(this);
-                _interactionText.gameObject.SetActive(false);
+                if (UIManager.Instance.IsInEnding)
+                {
+                    UIManager.Instance.ShowNextDialogue();
+                }
+                else if (_currentInteraction != null)
+                {
+                    _currentInteraction.Interact(this);
+                    _interactionText.gameObject.SetActive(false);
+                }
             }
         }
 
@@ -210,6 +227,14 @@ namespace GGJ2026.Player
         {
             if (value.phase == InputActionPhase.Started) _animPlayer.SetBool("IsCrouching", true);
             else if (value.phase == InputActionPhase.Canceled) _animPlayer.SetBool("IsCrouching", false);
+        }
+
+        public void OnRestart(InputAction.CallbackContext value)
+        {
+            if (value.phase == InputActionPhase.Started)
+            {
+                SceneManager.LoadScene("Main");
+            }
         }
 
         public void OnMaskSelect1(InputAction.CallbackContext value) => OnMaskSelect(value, 1);

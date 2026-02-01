@@ -66,7 +66,7 @@ namespace GGJ2026.Manager
                 }
             }
 
-            var maskTypes = System.Enum.GetValues(typeof(MaskType)).Cast<MaskType>().ToArray();
+            var maskTypes = System.Enum.GetValues(typeof(MaskType)).Cast<MaskType>().Where(x => x != MaskType.None).ToArray();
 
             foreach (var r in _rooms)
             {

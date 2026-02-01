@@ -37,7 +37,16 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "f1ba0d36-48eb-4cd5-b651-1c94a6531f70",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "4bd69223-3f66-4b30-9d43-c678d3bcb218",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -287,6 +296,28 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8efd1db3-a5e9-41b4-ab81-dbf9c4bdc5d5",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc6dd6be-be5e-457a-8f14-a6bb1cd5c916",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Restart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
