@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace GGJ2026.Player
 {
@@ -223,6 +224,14 @@ namespace GGJ2026.Player
         {
             if (value.phase == InputActionPhase.Started) _animPlayer.SetBool("IsCrouching", true);
             else if (value.phase == InputActionPhase.Canceled) _animPlayer.SetBool("IsCrouching", false);
+        }
+
+        public void OnRestart(InputAction.CallbackContext value)
+        {
+            if (value.phase == InputActionPhase.Started)
+            {
+                SceneManager.LoadScene("Main");
+            }
         }
 
         public void OnMaskSelect1(InputAction.CallbackContext value) => OnMaskSelect(value, 1);
