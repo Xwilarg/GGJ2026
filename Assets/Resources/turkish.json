@@ -1,1 +1,78 @@
-{}
+{
+  "see_intro": "You see {0}",
+  "press_to_interact": "Press 'E' to use this mask",
+
+  "play": "Play",
+  "credits": "Credits",
+
+  "credits_1": "Artist animator, proud father of the vessel",
+  "credits_2": "Music",
+  "credits_3": "Sound design",
+  "credits_4": "Programming and writing",
+  "credits_5": "Emotional support",
+  "credits_6": "Everything that is not listed above",
+
+  "memory_bad": "The memory fizzle out until it becomes a blurry mess",
+  "memory_good": "The memory fades in front of you, showing a passage",
+
+  "switch_joy": "You feel hapiness rises inside you",
+  "switch_sorrow": "You feel sadness rises inside you",
+  "switch_wrath": "You feel anger rises inside you",
+  "switch_blank": "You feel emotions leaving you",
+
+  "joy_1": "an orchard full of juicy fruits",
+  "joy_2": "a chimney warming a house in a busy living room",
+  "joy_3": "a buffet full of meats and vegetables",
+  "joy_4": "a christmas tree under which are countless presents",
+  "joy_5": "a kid in front of a birthday cake",
+
+  "sorrow_1": "a huge cemetary scattered by tombs",
+  "sorrow_2": "a forest filled with dead trees",
+  "sorrow_3": "a soldier in an armored wagon, waving at his wife",
+  "sorrow_4": "a sheet covering a body in an empty street",
+  "sorrow_5": "a dead basil sterm at it was never pruned from bad herb",
+
+  "wrath_1": "a battlefield, soldiers fighting afar",
+  "wrath_2": "a young man holding a knife, watching a coronation from afar",
+  "wrath_3": "a man spreading gasoline on a blood-covered wooden floor",
+  "wrath_4": "a lion protecting his cub against a group of hyenas",
+  "wrath_5": "a man being sentenced from his crimes by a judge hiding a smirk",
+
+  "ending_joy_1": "We can see the fullfilment on your mask, how proud you say you are of your deeds and the fond memories you share",
+  "ending_joy_2": "And joy was made to be shared, to spread it for those around you",
+  "ending_joy_3": "But shared in truthness as it was never meant to appear as a boast",
+  "ending_joy_4": "So remember to have this joy first imprinted within you, let it fill you and share it with others, as you should be open to receive theirs",
+  "ending_joy_5": "And once you are ready, do it, remove that mask",
+  "ending_joy_6": "Don't let joy be only as something you wear",
+
+  "ending_sorrow_1": "Your mask express sorrow, but it is your heart that is bleeding under the weight of your past misadventures.",
+  "ending_sorrow_2": "Distress, grief, sadness, all these goals you failed to accomplish and your kins you lost along the way.",
+  "ending_sorrow_3": "But you shouldn't see these feelings as a perpetual bleeding wound, but as a shield surrounding your heart and protecting you against what will come next.",
+  "ending_sorrow_4": "Don't see this new place as something that will harm you but use your past experience to get the best from it:",
+  "ending_sorrow_5": "On the first step you take here, remember those who were dear to you",
+  "ending_sorrow_6": "On the second one, remember the scars that were caused to you",
+  "ending_sorrow_7": "On the third one, remember all these goals you failed to achieve",
+  "ending_sorrow_8": "And then take these feelings and turn them into a better tomorrow but never forget where they came from and how they forged who you are.",
+  "ending_sorrow_9": "Once you fully assimilated them, take another step, ready yourself for a new adventure, for new encounters, for new happy moments and for all the missforture that will come alongside them",
+  "ending_sorrow_10": "As the cycle was never meant to end, so embrace it, go ahead",
+  "ending_sorrow_11": "Take another step",
+
+  "ending_wrath_1": "Injustice. Selfless, forcedly induced injustice. It boils within, with desperation, with frustration...",
+  "ending_wrath_2": "The incapacity of fighting back, even when the strength that it requires chars your heart.",
+  "ending_wrath_3": "An egoist feeling of inner scarring, born from a strong sense of justice, of defense and of fear.",
+  "ending_wrath_4": "Its the idea that comes from the necessity of change. Change for the better, it's the reaction that comes from the inability to process, or let yourself live an experience without fighting back, without feeling it thoroughly...",
+  "ending_wrath_5": "Even when you truly can't. Let it boil, burn and char. Its your natural need to protect your mind, your heart, and those who you care about.",
+  "ending_wrath_6": "Let it's warmth be the shield of your love, because wrath is what makes you move forward even when the biggest obstacles lie ahead. Move with anger, move with determination but most importantly, move with a passionate wrath...",
+  "ending_wrath_7": "Towards a better, fairer justice.",
+
+  "ending_blank_1": "Masks are options. Masks are shields. Masks are cover-ups. Masks are feelings. Masks are you, and you are masks...",
+  "ending_blank_2": "They are the greatest tool to hide, to protect yourself, to feel comfort... Like the breeze of emptiness caressing against your cold skin.",
+  "ending_blank_3": "In a world of differences, masks allows you to assimilate yourself into its groups, to feel accommodated, included and most importantly obtain that sense of belonging...",
+  "ending_blank_4": "We travel wearing them, even when they are heavy... Even when they do not convey what truly is behind...",
+  "ending_blank_5": "And there is nothing really wrong with it, in fact there is beauty in the work that is required to build them, in the ability of adaptation and desire to belong...",
+  "ending_blank_6": "But there is also something wondrous in the process of accepting them, and feeling safety in removing them, either with those who matter or in the comfort of solitude... Masks are a tool, an aid and sometimes even a burden...",
+  "ending_blank_7": "They can be useful, and unfair, and sometimes when we wear them for too long we forget what is behind, we decline the feelings from they were bornt.",
+  "ending_blank_8": "But here you are, you have assimilated them into you, have they been removed? Have they become part of your... Maybe they always were part of yourself.",
+  "ending_blank_9": "It is for you to decide, because you control your options, as deploy your shields and now you should have the strength to show yourself without cover, with your feelings.",
+  "ending_blank_10": "To them, for you."
+}
